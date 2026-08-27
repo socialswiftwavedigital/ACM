@@ -106,16 +106,15 @@ nav {
 /* ─── HERO SLIDER ─────────────────────────────────────── */
 .hero {
   position: relative; width: 100%;
-  height: calc(100vh - 108px); min-height: 540px;
+  height: 520px;
   margin-top: 108px; overflow: hidden; background: var(--blue);
 }
 
 .slide {
-  position: absolute;
-  top: 20px; left: 0; right: 0; bottom: 20px;
+  position: absolute; inset: 0;
   opacity: 0; transition: opacity 0.8s ease;
   pointer-events: none;
-  background-size: contain; background-position: center center; background-repeat: no-repeat;
+  background-size: cover; background-position: center top; background-repeat: no-repeat;
 }
 .slide.active { opacity: 1; pointer-events: all; }
 
