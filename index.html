@@ -89,135 +89,29 @@ nav {
 
 .slide {
   position: absolute; inset: 0;
-  display: flex; align-items: center;
-  opacity: 0; transition: opacity 0.75s ease;
+  opacity: 0; transition: opacity 0.8s ease;
   pointer-events: none;
+  background-size: cover; background-position: center; background-repeat: no-repeat;
 }
 .slide.active { opacity: 1; pointer-events: all; }
 
-.slide-1 { background: linear-gradient(130deg, #EBF0FF 0%, #F5F8FF 50%, #FFFFFF 100%); }
-.slide-2 { background: linear-gradient(130deg, #FFF0F0 0%, #FFF5F5 50%, #FFFFFF 100%); }
-.slide-3 { background: linear-gradient(130deg, #F0F5FF 0%, #F8FAFF 50%, #FFFFFF 100%); }
-.slide-4 { background: linear-gradient(130deg, #FFF0F2 0%, #FFF8F8 50%, #FFFFFF 100%); }
-.slide-5 { background: linear-gradient(130deg, #EEF2FF 0%, #F5F7FF 50%, #FFFFFF 100%); }
-.slide-6 { background: linear-gradient(130deg, #FFF2F2 0%, #FFF8F8 50%, #FFFFFF 100%); }
+/* Real product images as backgrounds */
+.slide-1 { background-image: url('slide-creams.png'); }
+.slide-2 { background-image: url('slide-serums.png'); }
+.slide-3 { background-image: url('slide-facewash.png'); }
+.slide-4 { background-image: url('slide-pjelly.png'); }
+.slide-5 { background-image: url('slide-lotions.png'); }
+.slide-6 { background-image: url('slide-shampoo.png'); }
 
-.slide-inner {
-  width: 100%; max-width: 1280px; margin: 0 auto;
-  padding: 0 64px;
-  display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 60px;
+/* Explore button overlay at bottom-center */
+.slide-cta-overlay {
+  position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%);
+  opacity: 0; transition: opacity 0.6s ease 0.4s, transform 0.6s ease 0.4s;
+  transform: translateX(-50%) translateY(20px);
 }
-
-.slide-eyebrow {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--muted); margin-bottom: 18px;
-  opacity: 0; transform: translateY(24px); transition: all 0.55s ease 0.05s;
+.slide.active .slide-cta-overlay {
+  opacity: 1; transform: translateX(-50%) translateY(0);
 }
-.slide-eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--red); }
-.slide-sub {
-  font-size: clamp(15px, 1.6vw, 19px); font-weight: 400; font-style: italic;
-  color: var(--muted); margin-bottom: 10px;
-  opacity: 0; transform: translateY(24px); transition: all 0.55s ease 0.15s;
-}
-.slide-title {
-  font-size: clamp(52px, 7vw, 92px); font-weight: 900; line-height: 0.95;
-  color: var(--blue); text-transform: uppercase;
-  letter-spacing: -1px; margin-bottom: 24px;
-  opacity: 0; transform: translateY(32px); transition: all 0.65s ease 0.25s;
-}
-.slide-title em { color: var(--red); font-style: normal; }
-.slide-desc {
-  font-size: 15px; font-weight: 400; color: var(--muted);
-  line-height: 1.8; max-width: 430px; margin-bottom: 38px;
-  opacity: 0; transform: translateY(24px); transition: all 0.55s ease 0.35s;
-}
-.slide-btn {
-  display: inline-block; background: var(--blue); color: var(--white);
-  padding: 16px 38px; font-size: 12px; font-weight: 700;
-  letter-spacing: 2px; text-transform: uppercase; text-decoration: none;
-  border: 2px solid var(--blue); border-radius: 4px;
-  opacity: 0; transform: translateY(24px);
-  transition: background 0.3s, color 0.3s, border-color 0.3s,
-              opacity 0.55s ease 0.45s, transform 0.55s ease 0.45s;
-}
-.slide-btn:hover { background: var(--red); border-color: var(--red); }
-
-.slide.active .slide-eyebrow,
-.slide.active .slide-sub,
-.slide.active .slide-title,
-.slide.active .slide-desc,
-.slide.active .slide-btn { opacity: 1; transform: translateY(0); }
-
-.slide-visual {
-  position: relative; height: 480px;
-  display: flex; align-items: center; justify-content: center;
-}
-
-/* Product bottle illustrations */
-.bottles { position: relative; width: 100%; height: 100%; }
-.bt {
-  position: absolute;
-  display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
-  padding-bottom: 14px; text-align: center; overflow: hidden;
-  box-shadow: 0 16px 48px rgba(13,33,88,0.18);
-  transition: transform 0.3s ease;
-}
-.bt:hover { transform: translateY(-10px) !important; }
-.bt .bn { font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.95); }
-.bt .bs { font-size: 8px; font-weight: 400; color: rgba(255,255,255,0.65); margin-top: 3px; }
-.bt::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 55%; background: rgba(255,255,255,0.12); }
-
-/* Slide 1 Creams */
-.c1a { width: 110px; height: 230px; background: linear-gradient(180deg,#1a3a8c,#2d5abf); border-radius: 55px 55px 8px 8px; bottom: 50px; left: 80px; transform: rotate(-4deg); }
-.c1b { width: 95px; height: 95px; background: linear-gradient(135deg,#dc2626,#ef4444); border-radius: 50%; bottom: 60px; left: 210px; }
-.c1c { width: 100px; height: 200px; background: linear-gradient(180deg,#0d2158,#1a3a8c); border-radius: 50px 50px 8px 8px; bottom: 50px; right: 70px; transform: rotate(4deg); }
-.c1d { width: 120px; height: 250px; background: linear-gradient(180deg,#1e4bb8,#3d6dd4); border-radius: 8px; bottom: 50px; left: 150px; }
-
-/* Slide 2 Serums */
-.c2a { width: 48px; height: 160px; background: linear-gradient(180deg,#dc2626,#ef4444); border-radius: 24px 24px 6px 6px; bottom: 80px; left: 110px; transform: rotate(-5deg); }
-.c2b { width: 52px; height: 180px; background: linear-gradient(180deg,#0d2158,#1a3a8c); border-radius: 26px 26px 6px 6px; bottom: 80px; left: 175px; }
-.c2c { width: 48px; height: 155px; background: linear-gradient(180deg,#b91c1c,#dc2626); border-radius: 24px 24px 6px 6px; bottom: 80px; right: 110px; transform: rotate(4deg); }
-.c2d { width: 56px; height: 195px; background: linear-gradient(180deg,#1e4bb8,#3d6dd4); border-radius: 28px 28px 6px 6px; bottom: 80px; right: 175px; }
-.c2drop { position: absolute; width: 5px; height: 55px; background: rgba(255,255,255,0.5); border-radius: 3px; bottom: 255px; left: 196px; }
-
-/* Slide 3 Face Wash */
-.c3a { width: 88px; height: 170px; background: linear-gradient(180deg,#dc2626,#ef4444); border-radius: 44px 44px 8px 8px; bottom: 80px; left: 90px; transform: rotate(-4deg); }
-.c3b { width: 95px; height: 210px; background: linear-gradient(180deg,#0d2158,#1a3a8c); border-radius: 10px; bottom: 80px; left: 195px; }
-.c3c { width: 82px; height: 155px; background: linear-gradient(180deg,#b91c1c,#dc2626); border-radius: 41px 41px 8px 8px; bottom: 80px; right: 80px; transform: rotate(5deg); }
-
-/* Slide 4 Petroleum Jelly */
-.c4a { width: 115px; height: 75px; background: linear-gradient(135deg,#0d2158,#1a3a8c); border-radius: 8px; bottom: 140px; left: 75px; }
-.c4b { width: 100px; height: 68px; background: linear-gradient(135deg,#dc2626,#ef4444); border-radius: 8px; bottom: 140px; left: 210px; transform: rotate(-3deg); }
-.c4c { width: 135px; height: 82px; background: linear-gradient(135deg,#1e4bb8,#3d6dd4); border-radius: 8px; bottom: 110px; left: 145px; }
-.c4la { position: absolute; width: 115px; height: 20px; background: #071540; border-radius: 4px 4px 0 0; bottom: 213px; left: 75px; }
-.c4lb { position: absolute; width: 100px; height: 18px; background: #991515; border-radius: 4px 4px 0 0; bottom: 206px; left: 210px; transform: rotate(-3deg); }
-.c4lc { position: absolute; width: 135px; height: 22px; background: #0d2158; border-radius: 4px 4px 0 0; bottom: 190px; left: 145px; }
-
-/* Slide 5 Lotions */
-.c5a { width: 82px; height: 210px; background: linear-gradient(180deg,#0d2158,#1a3a8c); border-radius: 41px 41px 8px 8px; bottom: 70px; left: 85px; }
-.c5b { width: 100px; height: 240px; background: linear-gradient(180deg,#dc2626,#ef4444); border-radius: 10px; bottom: 70px; left: 180px; }
-.c5c { width: 80px; height: 195px; background: linear-gradient(180deg,#1e4bb8,#3d6dd4); border-radius: 40px 40px 8px 8px; bottom: 70px; right: 70px; transform: rotate(4deg); }
-.c5pump { position: absolute; width: 8px; height: 52px; background: #0d2158; border-radius: 4px; bottom: 302px; left: 222px; }
-
-/* Slide 6 Shampoo */
-.c6a { width: 90px; height: 225px; background: linear-gradient(180deg,#dc2626,#ef4444); border-radius: 45px 45px 10px 10px; bottom: 60px; left: 78px; }
-.c6b { width: 88px; height: 248px; background: linear-gradient(180deg,#0d2158,#1a3a8c); border-radius: 10px; bottom: 60px; left: 178px; }
-.c6c { width: 88px; height: 218px; background: linear-gradient(180deg,#1e4bb8,#3d6dd4); border-radius: 44px 44px 10px 10px; bottom: 60px; right: 62px; transform: rotate(-3deg); }
-.c6ca { position: absolute; width: 90px; height: 28px; background: #991515; border-radius: 14px 14px 0 0; bottom: 283px; left: 78px; }
-.c6cb { position: absolute; width: 88px; height: 28px; background: #071540; border-radius: 4px 4px 0 0; bottom: 306px; left: 178px; }
-
-/* Floating shapes */
-.fshape {
-  position: absolute; border-radius: 50%;
-  background: rgba(13,33,88,0.04);
-  animation: flt 6s ease-in-out infinite;
-}
-.fs1 { width: 200px; height: 200px; top: 10px; right: 10px; animation-delay: 0s; }
-.fs2 { width: 110px; height: 110px; top: 220px; right: 0; animation-delay: 2s; }
-.fs3 { width: 70px; height: 70px; bottom: 30px; left: 10px; animation-delay: 4s; }
-.fs-red { background: rgba(220,38,38,0.05); }
-@keyframes flt { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-18px)} }
 
 /* Slider controls */
 .slider-dots {
@@ -244,6 +138,17 @@ nav {
   transition: all var(--trans); box-shadow: 0 4px 14px rgba(13,33,88,0.1);
 }
 .arr:hover { background: var(--blue); color: var(--white); border-color: var(--blue); }
+
+/* Slide CTA button */
+.slide-btn {
+  display: inline-block; background: var(--red); color: var(--white);
+  padding: 16px 44px; font-size: 13px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; text-decoration: none;
+  border: 2px solid var(--red); border-radius: 4px;
+  transition: background var(--trans), color var(--trans), border-color var(--trans);
+  box-shadow: 0 4px 20px rgba(220,38,38,0.5);
+}
+.slide-btn:hover { background: transparent; color: var(--white); border-color: var(--white); }
 
 /* ─── TICKER ─────────────────────────────────────────── */
 .ticker { background: var(--blue); color: var(--white); padding: 11px 0; overflow: hidden; white-space: nowrap; }
@@ -416,133 +321,43 @@ footer { background: var(--blue); padding: 72px 48px 30px; }
 
   <!-- Slide 1 – Creams -->
   <div class="slide slide-1 active">
-    <div class="slide-inner">
-      <div class="slide-text">
-        <div class="slide-eyebrow">ACM Product Range</div>
-        <div class="slide-sub">Nourish your skin every day,</div>
-        <h1 class="slide-title">Premium<br><em>Creams</em></h1>
-        <p class="slide-desc">Six luxurious formulations crafted for every skin type — brightening day creams, rich overnight repair, SPF shields and more.</p>
-        <a href="#products" class="slide-btn">Explore More</a>
-      </div>
-      <div class="slide-visual">
-        <div class="fshape fs1"></div><div class="fshape fs2"></div><div class="fshape fs3"></div>
-        <div class="bottles">
-          <div class="bt c1a"><span class="bn">Day</span><span class="bs">Cream</span></div>
-          <div class="bt c1b"><span class="bn">J</span></div>
-          <div class="bt c1d"><span class="bn">Night</span><span class="bs">Repair</span></div>
-          <div class="bt c1c"><span class="bn">SPF</span><span class="bs">Shield</span></div>
-        </div>
-      </div>
+    <div class="slide-cta-overlay">
+      <a href="#products" class="slide-btn">Explore Creams</a>
     </div>
   </div>
 
   <!-- Slide 2 – Serums -->
   <div class="slide slide-2">
-    <div class="slide-inner">
-      <div class="slide-text">
-        <div class="slide-eyebrow">ACM Product Range</div>
-        <div class="slide-sub">Targeted treatment, visible results,</div>
-        <h1 class="slide-title">Luxury<br><em>Serums</em></h1>
-        <p class="slide-desc">Seven high-potency serums — Vitamin C, Hyaluronic Acid, Retinol, Niacinamide and more for radiant, youthful skin.</p>
-        <a href="#products" class="slide-btn">Explore More</a>
-      </div>
-      <div class="slide-visual">
-        <div class="fshape fs1 fs-red"></div><div class="fshape fs2"></div>
-        <div class="bottles">
-          <div class="bt c2a"><span class="bn">Vit C</span></div>
-          <div class="bt c2b"><span class="bn">HA</span><span class="bs">Serum</span></div>
-          <div class="bt c2c"><span class="bn">Ret.</span></div>
-          <div class="bt c2d"><span class="bn">Glow</span></div>
-          <div class="c2drop"></div>
-        </div>
-      </div>
+    <div class="slide-cta-overlay">
+      <a href="#products" class="slide-btn">Explore Serums</a>
     </div>
   </div>
 
   <!-- Slide 3 – Face Wash -->
   <div class="slide slide-3">
-    <div class="slide-inner">
-      <div class="slide-text">
-        <div class="slide-eyebrow">ACM Product Range</div>
-        <div class="slide-sub">Cleanse, refresh, glow —</div>
-        <h1 class="slide-title">Face<br><em>Wash</em></h1>
-        <p class="slide-desc">Four gentle yet effective formulas — foaming, gel, cream and micellar — for a perfectly clean canvas every morning.</p>
-        <a href="#products" class="slide-btn">Explore More</a>
-      </div>
-      <div class="slide-visual">
-        <div class="fshape fs1"></div><div class="fshape fs3 fs-red"></div>
-        <div class="bottles">
-          <div class="bt c3a"><span class="bn">Foam</span><span class="bs">Cleanser</span></div>
-          <div class="bt c3b"><span class="bn">Gel</span><span class="bs">Wash</span></div>
-          <div class="bt c3c"><span class="bn">Micel</span><span class="bs">lar</span></div>
-        </div>
-      </div>
+    <div class="slide-cta-overlay">
+      <a href="#products" class="slide-btn">Explore Face Wash</a>
     </div>
   </div>
 
   <!-- Slide 4 – Petroleum Jelly -->
   <div class="slide slide-4">
-    <div class="slide-inner">
-      <div class="slide-text">
-        <div class="slide-eyebrow">ACM Product Range</div>
-        <div class="slide-sub">Pure protection for skin &amp; lips,</div>
-        <h1 class="slide-title">Petroleum<br><em>Jelly</em></h1>
-        <p class="slide-desc">Four variants of pharmaceutical-grade petroleum jelly — original, aloe vera, vitamin E and rose — for all-day moisture lock.</p>
-        <a href="#products" class="slide-btn">Explore More</a>
-      </div>
-      <div class="slide-visual">
-        <div class="fshape fs1 fs-red"></div><div class="fshape fs2"></div>
-        <div class="bottles">
-          <div class="c4la"></div><div class="c4lb"></div><div class="c4lc"></div>
-          <div class="bt c4a"><span class="bn">Original</span></div>
-          <div class="bt c4b"><span class="bn">Aloe</span></div>
-          <div class="bt c4c"><span class="bn">Vit E</span></div>
-        </div>
-      </div>
+    <div class="slide-cta-overlay">
+      <a href="#products" class="slide-btn">Explore Petroleum Jelly</a>
     </div>
   </div>
 
   <!-- Slide 5 – Lotions -->
   <div class="slide slide-5">
-    <div class="slide-inner">
-      <div class="slide-text">
-        <div class="slide-eyebrow">ACM Product Range</div>
-        <div class="slide-sub">Silky smooth, deeply moisturised —</div>
-        <h1 class="slide-title">Body<br><em>Lotions</em></h1>
-        <p class="slide-desc">Nine rich body lotions — daily moisturising, brightening, firming, summer fresh and fragrance-free sensitive formulas.</p>
-        <a href="#products" class="slide-btn">Explore More</a>
-      </div>
-      <div class="slide-visual">
-        <div class="fshape fs1"></div><div class="fshape fs3"></div>
-        <div class="bottles">
-          <div class="bt c5a"><span class="bn">Daily</span><span class="bs">Lotion</span></div>
-          <div class="bt c5b"><span class="bn">Bright</span><span class="bs">ening</span></div>
-          <div class="bt c5c"><span class="bn">Firm</span><span class="bs">ing</span></div>
-          <div class="c5pump"></div>
-        </div>
-      </div>
+    <div class="slide-cta-overlay">
+      <a href="#products" class="slide-btn">Explore Lotions</a>
     </div>
   </div>
 
   <!-- Slide 6 – Shampoo -->
   <div class="slide slide-6">
-    <div class="slide-inner">
-      <div class="slide-text">
-        <div class="slide-eyebrow">ACM Product Range</div>
-        <div class="slide-sub">Strong, shiny, beautiful hair —</div>
-        <h1 class="slide-title">Hair<br><em>Shampoo</em></h1>
-        <p class="slide-desc">Ten premium shampoos for every hair type — anti-dandruff, keratin, volume boost, hydrating and colour-safe formulations.</p>
-        <a href="#products" class="slide-btn">Explore More</a>
-      </div>
-      <div class="slide-visual">
-        <div class="fshape fs1 fs-red"></div><div class="fshape fs2"></div>
-        <div class="bottles">
-          <div class="c6ca"></div><div class="c6cb"></div>
-          <div class="bt c6a"><span class="bn">Anti</span><span class="bs">Dandruff</span></div>
-          <div class="bt c6b"><span class="bn">Kera</span><span class="bs">tin</span></div>
-          <div class="bt c6c"><span class="bn">Volume</span><span class="bs">Boost</span></div>
-        </div>
-      </div>
+    <div class="slide-cta-overlay">
+      <a href="#products" class="slide-btn">Explore Shampoo</a>
     </div>
   </div>
 
