@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — ACM Asia Cosmetics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#0D2158;--blue2:#1A3A8C;--red:#DC2626;--red2:#B91C1C;
+  --white:#FFFFFF;--offwhite:#F4F7FF;--gray:#F0F4FF;
+  --text:#0D2158;--muted:#5A6A8A;--border:#D6E0F5;--trans:0.3s ease;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden}
+
+.topbar{position:fixed;top:0;left:0;right:0;z-index:1001;background:rgba(6,18,56,0.98);border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:36px}
+.topbar-tagline{font-size:10.5px;font-weight:500;color:rgba(255,255,255,0.65);letter-spacing:1.8px;text-transform:uppercase}
+.topbar-tagline span{color:var(--red);margin:0 6px}
+.topbar-socials{display:flex;align-items:center;gap:18px}
+.topbar-socials a{color:rgba(255,255,255,0.55);text-decoration:none;display:flex;align-items:center;justify-content:center;transition:color var(--trans)}
+.topbar-socials a:hover{color:var(--red)}
+.topbar-socials svg{width:15px;height:15px;fill:currentColor}
+
+nav{position:fixed;top:36px;left:0;right:0;z-index:1000;background:var(--blue);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:72px;box-shadow:0 4px 24px rgba(13,33,88,0.35)}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-badge{width:46px;height:46px;border-radius:10px;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;color:var(--white);letter-spacing:0.5px;box-shadow:0 4px 12px rgba(220,38,38,0.4)}
+.logo-words .top{display:block;font-size:17px;font-weight:800;color:var(--white);letter-spacing:0.3px}
+.logo-words .sub{display:block;font-size:9px;font-weight:400;color:rgba(255,255,255,0.5);letter-spacing:2.5px;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:12.5px;font-weight:500;letter-spacing:0.3px;text-transform:uppercase;transition:color var(--trans);position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--red);transform:scaleX(0);transition:transform var(--trans);transform-origin:left}
+.nav-links a:hover{color:var(--white)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.nav-links a.active{color:var(--white)}
+.nav-cta{background:var(--red)!important;color:var(--white)!important;padding:11px 24px;border-radius:6px;font-weight:700!important;letter-spacing:0.5px;box-shadow:0 4px 14px rgba(220,38,38,0.4);transition:background var(--trans)!important}
+.nav-cta:hover{background:var(--red2)!important}
+.nav-cta::after{display:none!important}
+.nav-cart{position:relative;display:flex;align-items:center;justify-content:center;color:var(--white);text-decoration:none;width:40px;height:40px;transition:color var(--trans)}
+.nav-cart:hover{color:var(--red)}
+.nav-cart svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cart-badge{position:absolute;top:2px;right:2px;width:18px;height:18px;background:var(--red);color:var(--white);border-radius:50%;font-size:10px;font-weight:700;display:none;align-items:center;justify-content:center}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white)}
+
+/* PAGE HERO */
+.page-hero{margin-top:108px;background:var(--blue);padding:80px 48px 70px;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;right:-80px;top:-80px;width:400px;height:400px;background:var(--red);opacity:0.07;border-radius:50%}
+.ph-eye{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.ph-eye::before{content:'';width:24px;height:2px;background:var(--red);display:block}
+.ph-title{font-size:clamp(36px,5vw,64px);font-weight:900;color:var(--white);text-transform:uppercase;line-height:1.05;letter-spacing:-0.5px}
+.ph-title em{font-style:normal;color:var(--red)}
+.ph-sub{color:rgba(255,255,255,0.6);font-size:15px;margin-top:14px;max-width:540px}
+.container{max-width:1200px;margin:0 auto}
+.section{padding:90px 48px}
+
+/* STATS BANNER */
+.stats-banner{background:var(--red);padding:48px}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.sb-num{font-size:48px;font-weight:900;color:var(--white);line-height:1}
+.sb-lbl{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-top:8px}
+
+/* STORY */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.story-text .sec-eye{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.story-text .sec-eye::before{content:'';width:24px;height:2px;background:var(--red);display:block}
+.story-text h2{font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--blue);text-transform:uppercase;line-height:1.05;margin-bottom:24px}
+.story-text h2 em{font-style:normal;color:var(--red)}
+.story-text p{font-size:15px;line-height:1.9;color:var(--muted);margin-bottom:16px}
+.story-text p strong{color:var(--blue);font-weight:700}
+.story-visual{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sv-card{padding:32px 24px;border-radius:14px;text-align:center}
+.sv-card:nth-child(1){background:var(--blue);color:var(--white)}
+.sv-card:nth-child(2){background:var(--red);color:var(--white)}
+.sv-card:nth-child(3){background:var(--gray);color:var(--blue)}
+.sv-card:nth-child(4){background:var(--blue);color:var(--white)}
+.sv-icon{font-size:32px;margin-bottom:10px}
+.sv-title{font-size:16px;font-weight:700;margin-bottom:6px}
+.sv-desc{font-size:12px;opacity:0.75;line-height:1.5}
+
+/* VALUES */
+.values-section{background:var(--blue);padding:90px 48px}
+.values-section .sec-eye{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:14px;justify-content:center;width:100%}
+.values-section .sec-eye::before{content:'';width:24px;height:2px;background:var(--red);display:block}
+.values-section h2{font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--white);text-transform:uppercase;text-align:center;margin-bottom:60px}
+.values-section h2 em{font-style:normal;color:var(--red)}
+.val-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.val-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:36px 28px;transition:all var(--trans)}
+.val-card:hover{background:rgba(220,38,38,0.12);border-color:var(--red)}
+.val-icon{width:56px;height:56px;background:var(--red);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px}
+.val-title{font-size:18px;font-weight:700;color:var(--white);margin-bottom:10px}
+.val-desc{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7}
+
+/* TEAM / CTA */
+.cta-section{background:var(--red);padding:80px 48px;text-align:center}
+.cta-section h2{font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--white);text-transform:uppercase;margin-bottom:16px}
+.cta-section p{font-size:16px;color:rgba(255,255,255,0.8);margin-bottom:36px;max-width:520px;margin-left:auto;margin-right:auto}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-white{background:var(--white);color:var(--red);padding:16px 36px;border-radius:8px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:all var(--trans)}
+.btn-white:hover{background:var(--blue);color:var(--white)}
+.btn-outline{background:transparent;color:var(--white);border:2px solid var(--white);padding:14px 36px;border-radius:8px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:all var(--trans)}
+.btn-outline:hover{background:var(--white);color:var(--red)}
+
+/* FOOTER */
+footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28px}
+.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.fb-brand p{font-size:13px;line-height:1.8;margin-top:12px;max-width:280px}
+.fc h4{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--white);margin-bottom:18px}
+.fc ul{list-style:none}
+.fc li{margin-bottom:10px}
+.fc a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;transition:color var(--trans)}
+.fc a:hover{color:var(--white)}
+.footer-btm{max-width:1200px;margin:0 auto;border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;display:flex;justify-content:space-between;font-size:12px}
+
+@media(max-width:900px){
+  .topbar{padding:0 20px}.topbar-tagline{display:none}
+  nav{padding:0 20px}
+  .nav-links{display:none;position:absolute;top:108px;left:0;right:0;background:var(--blue);flex-direction:column;padding:20px;gap:0}
+  .nav-links.open{display:flex}
+  .nav-links li a{padding:14px 0;display:block;border-bottom:1px solid rgba(255,255,255,0.08)}
+  .hamburger{display:flex}
+  .page-hero,.section,.cta-section{padding-left:20px;padding-right:20px}
+  .stats-banner{padding:40px 20px}
+  .stats-inner{grid-template-columns:1fr 1fr}
+  .story-grid{grid-template-columns:1fr}
+  .story-visual{grid-template-columns:1fr 1fr}
+  .val-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:32px}
+  .values-section{padding-left:20px;padding-right:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-tagline">Your Trusted<span>✦</span>Cosmetics Manufacturing Partner</div>
+  <div class="topbar-socials">
+    <a href="https://facebook.com" aria-label="Facebook" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+    <a href="https://instagram.com" aria-label="Instagram" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+    <a href="https://wa.me/923001234567" aria-label="WhatsApp" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
+    <a href="https://tiktok.com" aria-label="TikTok" target="_blank"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.22 8.22 0 0 0 4.82 1.56V6.79a4.85 4.85 0 0 1-1.05-.1z"/></svg></a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <div class="logo-badge">ACM</div>
+    <div class="logo-words"><span class="top">ACM Asia</span><span class="sub">Cosmetics &amp; Manufactures</span></div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="collections.html">Products</a></li>
+    <li><a href="index.html#process">Process</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="collections.html" class="nav-cta">View Catalogue</a></li>
+  </ul>
+  <a href="cart.html" class="nav-cart" aria-label="Cart">
+    <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/></svg>
+    <span class="cart-badge">0</span>
+  </a>
+  <button class="hamburger" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <div class="ph-eye">Who We Are</div>
+    <h1 class="ph-title">About <em>ACM</em><br>Asia Cosmetics</h1>
+    <p class="ph-sub">Pakistan's premier cosmetics manufacturing company — trusted by brands nationwide for world-class beauty formulations.</p>
+  </div>
+</div>
+
+<!-- STATS BANNER -->
+<div class="stats-banner">
+  <div class="stats-inner">
+    <div><div class="sb-num">40+</div><div class="sb-lbl">Products</div></div>
+    <div><div class="sb-num">6</div><div class="sb-lbl">Categories</div></div>
+    <div><div class="sb-num">100%</div><div class="sb-lbl">Quality Tested</div></div>
+    <div><div class="sb-num">10+</div><div class="sb-lbl">Years Experience</div></div>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="section">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-text">
+        <div class="sec-eye">Our Story</div>
+        <h2>Built on a <em>Passion</em><br>for Excellence</h2>
+        <p>ACM Asia Cosmetics &amp; Manufactures Private Limited was established with a singular mission: to produce <strong>world-class beauty products</strong> that meet the highest international quality standards, manufactured right here in Pakistan.</p>
+        <p>Over the past decade, we have grown from a small operation into one of Pakistan's most trusted cosmetics manufacturers. Our state-of-the-art facility handles everything from <strong>R&amp;D and formulation</strong> to filling, packaging, and quality control — all under one roof.</p>
+        <p>Today, ACM supplies a comprehensive range of 40+ premium products across 6 categories to retailers, brands, and private label clients throughout Pakistan and beyond.</p>
+      </div>
+      <div class="story-visual">
+        <div class="sv-card">
+          <div class="sv-icon">🏭</div>
+          <div class="sv-title">Modern Facility</div>
+          <div class="sv-desc">Automated filling, mixing & packaging lines</div>
+        </div>
+        <div class="sv-card">
+          <div class="sv-icon">🔬</div>
+          <div class="sv-title">R&D Lab</div>
+          <div class="sv-desc">In-house research & superior formulations</div>
+        </div>
+        <div class="sv-card">
+          <div class="sv-icon">✅</div>
+          <div class="sv-title">Quality Control</div>
+          <div class="sv-desc">Every batch tested for safety & efficacy</div>
+        </div>
+        <div class="sv-card">
+          <div class="sv-icon">📦</div>
+          <div class="sv-title">Private Label</div>
+          <div class="sv-desc">Full branding & custom label services</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<div class="values-section">
+  <div class="sec-eye" style="display:flex;justify-content:center;align-items:center;gap:10px">
+    <span style="display:block;width:24px;height:2px;background:var(--red)"></span>Our Values
+  </div>
+  <h2 style="font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--white);text-transform:uppercase;text-align:center;margin-bottom:60px">What We <em style="font-style:normal;color:var(--red)">Stand</em> For</h2>
+  <div class="val-grid">
+    <div class="val-card">
+      <div class="val-icon">💎</div>
+      <div class="val-title">Premium Quality</div>
+      <div class="val-desc">We never compromise on ingredients or formulation standards. Every product undergoes rigorous testing before it leaves our facility.</div>
+    </div>
+    <div class="val-card">
+      <div class="val-icon">🤝</div>
+      <div class="val-title">Trusted Partnership</div>
+      <div class="val-desc">We build long-term relationships with our clients, providing dedicated support from concept development through to final delivery.</div>
+    </div>
+    <div class="val-card">
+      <div class="val-icon">🌱</div>
+      <div class="val-title">Responsible Manufacturing</div>
+      <div class="val-desc">We are committed to ethical sourcing, sustainable practices, and responsible manufacturing that respects people and the environment.</div>
+    </div>
+    <div class="val-card">
+      <div class="val-icon">⚡</div>
+      <div class="val-title">Innovation First</div>
+      <div class="val-desc">Our R&amp;D team constantly researches new ingredients and technologies to keep our product formulations ahead of industry trends.</div>
+    </div>
+    <div class="val-card">
+      <div class="val-icon">🎯</div>
+      <div class="val-title">Client Focus</div>
+      <div class="val-desc">Your success is our success. We listen carefully to your requirements and tailor our manufacturing capabilities to exceed your expectations.</div>
+    </div>
+    <div class="val-card">
+      <div class="val-icon">🏆</div>
+      <div class="val-title">Industry Leadership</div>
+      <div class="val-desc">A decade of manufacturing excellence has made ACM a respected leader in Pakistan's cosmetics industry, trusted by major brands nationwide.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Partner with ACM</h2>
+  <p>Ready to bring your cosmetics vision to life? Let's talk about your manufacturing needs.</p>
+  <div class="cta-btns">
+    <a href="contact.html" class="btn-white">Get In Touch</a>
+    <a href="collections.html" class="btn-outline">View Products</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="fb-brand">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px">
+        <div class="logo-badge">ACM</div>
+        <div class="logo-words"><span class="top">ACM Asia</span><span class="sub">Cosmetics &amp; Manufactures</span></div>
+      </div>
+      <p>Pakistan's trusted cosmetics manufacturing partner — delivering premium quality beauty products for over a decade.</p>
+    </div>
+    <div class="fc"><h4>Products</h4><ul>
+      <li><a href="collections.html">Creams</a></li><li><a href="collections.html">Serums</a></li>
+      <li><a href="collections.html">Face Wash</a></li><li><a href="collections.html">Lotions</a></li>
+      <li><a href="collections.html">Shampoo</a></li>
+    </ul></div>
+    <div class="fc"><h4>Company</h4><ul>
+      <li><a href="about.html">About Us</a></li><li><a href="index.html#process">Our Process</a></li>
+      <li><a href="contact.html">Contact Us</a></li><li><a href="cart.html">My Cart</a></li>
+    </ul></div>
+    <div class="fc"><h4>Contact</h4><ul>
+      <li><a href="mailto:info@acmasiacosmetics.com">info@acmasiacosmetics.com</a></li>
+      <li><a href="tel:+923001234567">+92 300 1234567</a></li>
+      <li><a href="https://wa.me/923001234567" target="_blank">WhatsApp Order</a></li>
+      <li><a href="#">Lahore, Pakistan</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-btm">
+    <span>© 2024 ACM Asia Cosmetics &amp; Manufactures Pvt. Ltd. All rights reserved.</span>
+    <span>Made in Pakistan</span>
+  </div>
+</footer>
+
+<script src="products.js"></script>
+<script>
+document.getElementById('hbg').onclick = () => document.getElementById('navLinks').classList.toggle('open');
+</script>
+</body>
+</html>
