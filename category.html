@@ -281,8 +281,8 @@ document.getElementById('prodGrid').innerHTML = prods.map(p => `
       <div class="prod-name">${p.name}</div>
       <div class="prod-desc">${p.desc}</div>
       <div class="prod-footer">
-        <div class="prod-price">Rs. ${p.price.toLocaleString()} <span>/unit</span></div>
-        <button class="add-btn" onclick="orderNow('${p.name.replace(/'/g,"\\'")}',${p.price})">Order on WhatsApp</button>
+        <div class="prod-price">Min. Order: <span>100 pcs</span></div>
+        <button class="add-btn" onclick="orderNow('${p.name.replace(/'/g,"\\'")}')">Order on WhatsApp</button>
       </div>
     </div>
   </div>`).join('');

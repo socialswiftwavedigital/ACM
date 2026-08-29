@@ -48,7 +48,7 @@ const PRODUCTS = [
   {id:'sh-10',name:'Nourishing Shampoo',cat:'Shampoo',price:630,desc:'Rich nutrition for all hair'},
 ];
 
-function orderNow(name, price) {
-  const msg = `Hello ACM Asia Cosmetics! 👋\n\nI would like to order:\n📦 *${name}*\n💰 Price: Rs. ${price.toLocaleString()} per unit\n\nPlease confirm availability and delivery details. Thank you!`;
+function orderNow(name) {
+  const msg = `Hello ACM Asia Cosmetics! 👋\n\nI would like to place an order for:\n📦 *${name}*\n📦 Quantity: 100+ pcs\n\nPlease share pricing and delivery details. Thank you!`;
   window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`, '_blank');
 }
