@@ -1,4 +1,4 @@
-const WHATSAPP = '923001234567'; // ← Update this number
+const WHATSAPP = '923001234567';
 
 const PRODUCTS = [
   {id:'cream-1',name:'Moisturizing Day Cream',cat:'Creams',price:850,desc:'All-day hydration & protection'},
@@ -48,52 +48,7 @@ const PRODUCTS = [
   {id:'sh-10',name:'Nourishing Shampoo',cat:'Shampoo',price:630,desc:'Rich nutrition for all hair'},
 ];
 
-const CAT_COLORS = {
-  'Creams':         {bg:'#0D2158', accent:'#DC2626'},
-  'Serums':         {bg:'#1a1060', accent:'#DC2626'},
-  'Face Wash':      {bg:'#0a3d62', accent:'#DC2626'},
-  'Petroleum Jelly':{bg:'#1e3a5f', accent:'#DC2626'},
-  'Lotions':        {bg:'#0D2158', accent:'#DC2626'},
-  'Shampoo':        {bg:'#12285c', accent:'#DC2626'},
-};
-
-const Cart = {
-  get() { try { return JSON.parse(localStorage.getItem('acm_cart')||'[]'); } catch { return []; } },
-  save(items) { try { localStorage.setItem('acm_cart', JSON.stringify(items)); } catch {} },
-  add(product, qty=1) {
-    const items = this.get();
-    const ex = items.find(i=>i.id===product.id);
-    if (ex) ex.qty += qty; else items.push({id:product.id,name:product.name,cat:product.cat,price:product.price,qty});
-    this.save(items); this.badge(); this.toast(product.name);
-  },
-  remove(id) { this.save(this.get().filter(i=>i.id!==id)); this.badge(); },
-  setQty(id, qty) {
-    const items=this.get(); const item=items.find(i=>i.id===id);
-    if(!item) return; item.qty=qty; if(item.qty<1) return this.remove(id);
-    this.save(items); this.badge();
-  },
-  count() { return this.get().reduce((s,i)=>s+i.qty,0); },
-  total() { return this.get().reduce((s,i)=>s+i.price*i.qty,0); },
-  badge() {
-    document.querySelectorAll('.cart-badge').forEach(b=>{
-      const c=this.count(); b.textContent=c; b.style.display=c?'flex':'none';
-    });
-  },
-  toast(name) {
-    let t=document.getElementById('acm-toast');
-    if(!t){ t=document.createElement('div'); t.id='acm-toast'; document.body.appendChild(t); }
-    t.textContent='✓ '+name+' added to cart';
-    t.className='acm-toast show';
-    clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove('show'),2600);
-  },
-  checkout() {
-    const items=this.get();
-    if(!items.length){alert('Your cart is empty!');return;}
-    let msg='🛍️ *Order — ACM Asia Cosmetics & Manufactures*\n\n*Products:*\n';
-    items.forEach(i=>{ msg+=`• ${i.name} × ${i.qty}  =  Rs. ${(i.price*i.qty).toLocaleString()}\n`; });
-    msg+=`\n*Total: Rs. ${this.total().toLocaleString()}*\n\nPlease confirm my order. Thank you! 🙏`;
-    window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`, '_blank');
-  }
-};
-
-document.addEventListener('DOMContentLoaded', ()=>Cart.badge());
+function orderNow(name, price) {
+  const msg = `Hello ACM Asia Cosmetics! 👋\n\nI would like to order:\n📦 *${name}*\n💰 Price: Rs. ${price.toLocaleString()} per unit\n\nPlease confirm availability and delivery details. Thank you!`;
+  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`, '_blank');
+}
