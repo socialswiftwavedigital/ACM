@@ -134,13 +134,18 @@ footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28p
   .collections-section{padding:40px 20px 80px}
   .footer-grid{grid-template-columns:1fr;gap:32px}
 }
-</style>
+.nav-socials { display:flex; align-items:center; gap:14px; }
+.nav-socials a { color:rgba(255,255,255,0.6); text-decoration:none; display:flex; align-items:center; transition:color 0.3s ease; }
+.nav-socials a:hover { color:var(--red); }
+.nav-socials svg { width:15px; height:15px; fill:currentColor; }</style>
 </head>
 <body>
 
 <!-- TOP BAR -->
 <div class="topbar">
-  <div class="topbar-track"><span class="tb-ti">Your Trusted Partner</span><span class="tb-sep">✦</span><span class="tb-ti">Creams</span><span class="tb-sep">✦</span><span class="tb-ti">Serums</span><span class="tb-sep">✦</span><span class="tb-ti">Face Wash</span><span class="tb-sep">✦</span><span class="tb-ti">Petroleum Jelly</span><span class="tb-sep">✦</span><span class="tb-ti">Lotions</span><span class="tb-sep">✦</span><span class="tb-ti">Shampoo</span><span class="tb-sep">✦</span><span class="tb-ti">Baby &amp; Kids</span><span class="tb-sep">✦</span><span class="tb-ti">ACM Asia Cosmetics &amp; Manufactures</span><span class="tb-sep">✦</span><span class="tb-ti">Your Trusted Partner</span><span class="tb-sep">✦</span><span class="tb-ti">Creams</span><span class="tb-sep">✦</span><span class="tb-ti">Serums</span><span class="tb-sep">✦</span><span class="tb-ti">Face Wash</span><span class="tb-sep">✦</span><span class="tb-ti">Petroleum Jelly</span><span class="tb-sep">✦</span><span class="tb-ti">Lotions</span><span class="tb-sep">✦</span><span class="tb-ti">Shampoo</span><span class="tb-sep">✦</span><span class="tb-ti">Baby &amp; Kids</span><span class="tb-sep">✦</span><span class="tb-ti">ACM Asia Cosmetics &amp; Manufactures</span><span class="tb-sep">✦</span></div>
+  <marquee scrollamount="4" style="line-height:36px;font-size:10.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.85);">
+    &nbsp;&nbsp;&nbsp;Your Trusted Partner&nbsp;<span style="color:#DC2626">✦</span>&nbsp;Creams&nbsp;<span style="color:#DC2626">✦</span>&nbsp;Serums&nbsp;<span style="color:#DC2626">✦</span>&nbsp;Face Wash&nbsp;<span style="color:#DC2626">✦</span>&nbsp;Petroleum Jelly&nbsp;<span style="color:#DC2626">✦</span>&nbsp;Lotions&nbsp;<span style="color:#DC2626">✦</span>&nbsp;Shampoo&nbsp;<span style="color:#DC2626">✦</span>&nbsp;Baby &amp; Kids&nbsp;<span style="color:#DC2626">✦</span>&nbsp;ACM Asia Cosmetics &amp; Manufactures&nbsp;<span style="color:#DC2626">✦</span>&nbsp;&nbsp;&nbsp;
+  </marquee>
 </div>
 
 <!-- NAV -->
@@ -309,6 +314,7 @@ document.getElementById('hbg').onclick = () => document.getElementById('navLinks
 </div>
 </body>
 </html>
+
 
 
 
