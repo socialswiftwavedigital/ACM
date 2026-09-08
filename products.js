@@ -46,16 +46,17 @@ const PRODUCTS = [
   {id:'lot-9',name:'Aloe Vera Lotion',cat:'Lotions',price:700,desc:'Soothing & cooling aloe formula'},
   {id:'lot-10',name:'Multi-Purpose Lotion',cat:'Lotions',price:720,desc:'All-in-one formula for face & body'},
 
-  {id:'sh-1',name:'Anti-Dandruff Shampoo',cat:'Shampoo',price:650,desc:'Eliminates dandruff & flakes'},
-  {id:'sh-2',name:'Moisturizing Shampoo',cat:'Shampoo',price:600,desc:'Deep hydration for dry hair'},
-  {id:'sh-3',name:'Hair Fall Control Shampoo',cat:'Shampoo',price:750,desc:'Strengthens & reduces fall'},
-  {id:'sh-4',name:'Color Protection Shampoo',cat:'Shampoo',price:800,desc:'Preserves hair color vibrancy'},
-  {id:'sh-5',name:'Keratin Shampoo',cat:'Shampoo',price:900,desc:'Smoothens & repairs hair'},
-  {id:'sh-6',name:'Argan Oil Shampoo',cat:'Shampoo',price:850,desc:'Nourishes & adds shine'},
-  {id:'sh-7',name:'Volumizing Shampoo',cat:'Shampoo',price:700,desc:'Boosts body & volume'},
-  {id:'sh-8',name:'Scalp Care Shampoo',cat:'Shampoo',price:720,desc:'Balances scalp health'},
-  {id:'sh-9',name:'Deep Cleanse Shampoo',cat:'Shampoo',price:680,desc:'Removes buildup & refreshes'},
-  {id:'sh-10',name:'Nourishing Shampoo',cat:'Shampoo',price:630,desc:'Rich nutrition for all hair'},
+  {id:'sh-1',name:'Keratin Shampoo',cat:'Shampoo',price:900,desc:'Smoothens, repairs & strengthens hair'},
+  {id:'sh-2',name:'Anti-Dandruff Shampoo',cat:'Shampoo',price:650,desc:'Eliminates dandruff & flakes effectively'},
+  {id:'sh-3',name:'Sulfate-Free Shampoo',cat:'Shampoo',price:800,desc:'Gentle cleanse without harsh sulfates'},
+  {id:'sh-4',name:'Herbal Shampoo',cat:'Shampoo',price:700,desc:'Natural herbs for healthy hair growth'},
+  {id:'sh-5',name:'Onion Shampoo',cat:'Shampoo',price:750,desc:'Onion extract to reduce hair fall'},
+  {id:'sh-6',name:'Egg Shampoo',cat:'Shampoo',price:720,desc:'Protein-rich formula for strong hair'},
+  {id:'sh-7',name:'Rice Shampoo',cat:'Shampoo',price:680,desc:'Rice water for smooth & shiny hair'},
+  {id:'sh-8',name:'Coconut Shampoo',cat:'Shampoo',price:700,desc:'Deep nourishment with coconut extracts'},
+  {id:'sh-9',name:'Almond Shampoo',cat:'Shampoo',price:750,desc:'Almond oil for soft & silky hair'},
+  {id:'sh-10',name:'Strengthening Shampoo',cat:'Shampoo',price:780,desc:'Fortifies & prevents hair breakage'},
+  {id:'sh-11',name:'Men\'s Shampoo',cat:'Shampoo',price:700,desc:'Powerful scalp care for men\'s hair'},
 ];
 
 function orderNow(name) {
