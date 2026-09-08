@@ -161,7 +161,7 @@ footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28p
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
-    <li class="nav-dropdown"><a href="collections.html" class="active">Products<svg class="drop-caret" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a><div class="drop-menu"><a href="category.html?cat=Creams">Creams</a><a href="category.html?cat=Serums">Serums</a><a href="category.html?cat=Face+Wash">Face Wash</a><a href="category.html?cat=Petroleum+Jelly">Petroleum Jelly</a><a href="category.html?cat=Lotions">Lotions</a><a href="category.html?cat=Shampoo">Shampoo</a></div></li>
+    <li class="nav-dropdown"><a href="collections.html" class="active">Products<svg class="drop-caret" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a><div class="drop-menu"><a href="category.html?cat=Creams">Creams</a><a href="category.html?cat=Serums">Serums</a><a href="category.html?cat=Face+Wash">Face Wash</a><a href="category.html?cat=Petroleum+Jelly">Petroleum Jelly</a><a href="category.html?cat=Lotions">Lotions</a><a href="category.html?cat=Shampoo">Shampoo</a><a href="category.html?cat=Baby+%26+Kids">Baby &amp; Kids</a></div></li>
     <li><a href="index.html#process">Process</a></li>
     <li><a href="contact.html">Contact</a></li>
     <li><a href="collections.html" class="nav-cta">View Catalogue</a></li>
@@ -192,6 +192,7 @@ footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28p
     <button class="ftab" data-cat="Petroleum Jelly">Petroleum Jelly</button>
     <button class="ftab" data-cat="Lotions">Lotions</button>
     <button class="ftab" data-cat="Shampoo">Shampoo</button>
+    <button class="ftab" data-cat="Baby &amp; Kids">Baby &amp; Kids</button>
   </div>
 </div>
 
@@ -224,6 +225,7 @@ footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28p
       <li><a href="category.html?cat=Petroleum+Jelly">Petroleum Jelly</a></li>
       <li><a href="category.html?cat=Lotions">Lotions</a></li>
       <li><a href="category.html?cat=Shampoo">Shampoo</a></li>
+      <li><a href="category.html?cat=Baby+%26+Kids">Baby &amp; Kids</a></li>
     </ul></div>
     <div class="fc"><h4>Contact Info</h4><ul>
       <li><a href="tel:+923001234567">+92 300 1234567</a></li>
@@ -242,16 +244,18 @@ const CAT_BG = {
   'Creams':         '#0D2158','Serums':        '#1a1060',
   'Face Wash':      '#0a3d62','Petroleum Jelly':'#1e3a5f',
   'Lotions':        '#132E6A','Shampoo':       '#12285c',
+  'Baby & Kids':    '#1a5276',
 };
 const CAT_ABBR = {
   'Creams':'CR','Serums':'SR','Face Wash':'FW',
-  'Petroleum Jelly':'PJ','Lotions':'LT','Shampoo':'SH'
+  'Petroleum Jelly':'PJ','Lotions':'LT','Shampoo':'SH',
+  'Baby & Kids':'BK'
 };
 
 function renderProducts(filterCat) {
   const container = document.getElementById('productContainer');
   const cats = filterCat === 'all'
-    ? ['Creams','Serums','Face Wash','Petroleum Jelly','Lotions','Shampoo']
+    ? ['Creams','Serums','Face Wash','Petroleum Jelly','Lotions','Shampoo','Baby & Kids']
     : [filterCat];
 
   container.innerHTML = '';

@@ -57,6 +57,15 @@ const PRODUCTS = [
   {id:'sh-9',name:'Almond Shampoo',cat:'Shampoo',price:750,desc:'Almond oil for soft & silky hair'},
   {id:'sh-10',name:'Strengthening Shampoo',cat:'Shampoo',price:780,desc:'Fortifies & prevents hair breakage'},
   {id:'sh-11',name:'Men\'s Shampoo',cat:'Shampoo',price:700,desc:'Powerful scalp care for men\'s hair'},
+
+  {id:'bk-1',name:'Baby Lotion',cat:'Baby & Kids',price:650,desc:'Gentle moisturizing lotion for soft baby skin'},
+  {id:'bk-2',name:'Baby Cream',cat:'Baby & Kids',price:600,desc:'Nourishing cream for delicate baby skin'},
+  {id:'bk-3',name:'Baby Shampoo',cat:'Baby & Kids',price:550,desc:'Tear-free gentle formula for baby hair'},
+  {id:'bk-4',name:'Baby Face Wash',cat:'Baby & Kids',price:520,desc:'Mild cleansing for baby\'s sensitive face'},
+  {id:'bk-5',name:'Baby Body Wash',cat:'Baby & Kids',price:580,desc:'Soft & gentle full-body baby wash'},
+  {id:'bk-6',name:'Baby Oil',cat:'Baby & Kids',price:500,desc:'Pure moisturizing oil for baby massage'},
+  {id:'bk-7',name:'Baby Petroleum Jelly',cat:'Baby & Kids',price:400,desc:'Safe & gentle skin protection for babies'},
+  {id:'bk-8',name:'Kids Shampoo',cat:'Baby & Kids',price:580,desc:'Fun & gentle shampoo for kids\' hair'},
 ];
 
 function orderNow(name) {
