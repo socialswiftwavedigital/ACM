@@ -1,4 +1,4 @@
-const WHATSAPP = '923001234567';
+const WHATSAPP = '923255129241';
 
 const PRODUCTS = [
   {id:'cream-1',name:'Vitamin C Cream',cat:'Creams',price:950,desc:'Brightens skin & boosts radiance with Vitamin C'},
