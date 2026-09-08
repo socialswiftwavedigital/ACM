@@ -314,7 +314,7 @@ footer { background: var(--blue); padding: 72px 48px 30px; }
 /* ─── RESPONSIVE ─────────────────────────────────────── */
 @media (max-width: 900px) {
   nav { padding: 0 20px; }
-  .nav-links { display: none; position: fixed; top: 116px; left: 0; right: 0; bottom: 0; background: var(--blue); flex-direction: column; align-items: center; justify-content: center; gap: 28px; }
+  .nav-links { display: none; position: fixed; top: 116px; left: 0; right: 0; bottom: 0; background: var(--blue); flex-direction: column; align-items: center; justify-content: center; gap: 24px; z-index: 998; overflow-y: auto; }
   .nav-links.open { display: flex; }
   .hamburger { display: flex; }
   .nav-socials { display: none; }
@@ -348,6 +348,10 @@ footer { background: var(--blue); padding: 72px 48px 30px; }
 .nav-socials a { color:rgba(255,255,255,0.6); text-decoration:none; display:flex; align-items:center; transition:color 0.3s ease; }
 .nav-socials a:hover { color:var(--red); }
 .nav-socials svg { width:15px; height:15px; fill:currentColor; }
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.hamburger span{transition:all 0.3s ease}
 @media (max-width: 540px) {
   .topbar { height: 30px; }
   .topbar marquee { font-size: 9px !important; line-height: 30px !important; letter-spacing: 1.2px !important; }
@@ -648,7 +652,11 @@ let ts = 0;
 document.querySelector('.hero').addEventListener('touchstart', e => ts = e.touches[0].clientX);
 document.querySelector('.hero').addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - ts; if (Math.abs(dx) > 50) { goTo(dx < 0 ? cur + 1 : cur - 1); startTmr(); } });
 startTmr();
-document.getElementById('hbg').onclick = () => document.getElementById('navLinks').classList.toggle('open');
+document.getElementById('hbg').addEventListener('click',function(){
+  var nav=document.getElementById('navLinks');
+  nav.classList.toggle('open');
+  this.classList.toggle('open');
+});
 const ro = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } }); }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 </script>
@@ -670,6 +678,8 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 </div>
 </body>
 </html>
+
+
 
 
 

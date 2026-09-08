@@ -25,7 +25,7 @@ body{font-family:'Poppins',sans-serif;color:var(--text);background:var(--white);
 .topbar-socials a:hover{color:var(--red)}
 .topbar-socials svg{width:15px;height:15px;fill:currentColor}
 
-nav{position:fixed;top:36px;left:0;right:0;z-index:1000;background:var(--blue);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:72px;box-shadow:0 4px 24px rgba(13,33,88,0.35)}
+nav{position:fixed;top:36px;left:0;right:0;z-index:1000;background:var(--blue);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:80px;border-bottom:3px solid var(--red);box-shadow:0 4px 24px rgba(13,33,88,0.35)}
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
 .logo-badge{width:46px;height:46px;border-radius:10px;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;color:var(--white);letter-spacing:0.5px;box-shadow:0 4px 12px rgba(220,38,38,0.4)}
 .logo-words .top{display:block;font-size:17px;font-weight:800;color:var(--white);letter-spacing:0.3px}
@@ -48,7 +48,7 @@ nav{position:fixed;top:36px;left:0;right:0;z-index:1000;background:var(--blue);d
 .nav-wa:hover{background:#128C7E}
 
 /* PAGE HERO */
-.page-hero{margin-top:108px;background:var(--blue);padding:80px 48px 70px;position:relative;overflow:hidden}
+.page-hero{margin-top:116px;background:var(--blue);padding:80px 48px 70px;position:relative;overflow:hidden}
 .page-hero::before{content:'';position:absolute;right:-80px;top:-80px;width:400px;height:400px;background:var(--red);opacity:0.07;border-radius:50%}
 .container{max-width:1200px;margin:0 auto;position:relative;z-index:1}
 .ph-eye{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:12px;display:flex;align-items:center;gap:10px}
@@ -124,6 +124,7 @@ footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28p
   .nav-links.open{display:flex}
   .nav-links li a{padding:14px 0;display:block;border-bottom:1px solid rgba(255,255,255,0.08)}
   .hamburger{display:flex}
+  .nav-socials { display: none; }
   .drop-menu{position:static;transform:none!important;opacity:1;visibility:visible;pointer-events:auto;box-shadow:none;border:none;background:rgba(255,255,255,0.05);border-radius:0;padding:0;margin-left:12px;margin-bottom:4px}
   .drop-menu a{padding:8px 0 8px 12px;border-bottom:1px solid rgba(255,255,255,0.05);font-size:11px}
   .drop-caret{display:none}
@@ -137,12 +138,19 @@ footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28p
 .nav-socials a { color:rgba(255,255,255,0.6); text-decoration:none; display:flex; align-items:center; transition:color 0.3s ease; }
 .nav-socials a:hover { color:var(--red); }
 .nav-socials svg { width:15px; height:15px; fill:currentColor; }
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.hamburger span{transition:all 0.3s ease}
 @media (max-width: 540px) {
   .topbar { height: 30px; }
   .topbar marquee { font-size: 9px !important; line-height: 30px !important; letter-spacing: 1.2px !important; }
   nav { height: 60px !important; top: 30px !important; }
   nav img[src='logo.png'] { height: 48px !important; }
   .hero { margin-top: 90px !important; }
+  .page-hero { margin-top: 90px !important; padding: 50px 20px 40px !important; }
+  .cat-hero { margin-top: 90px !important; }
+  .nav-links { top: 90px !important; }
 }</style>
 </head>
 <body>
@@ -297,7 +305,11 @@ footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28p
 
 <script src="products.js"></script>
 <script>
-document.getElementById('hbg').onclick = () => document.getElementById('navLinks').classList.toggle('open');
+document.getElementById('hbg').addEventListener('click',function(){
+  var nav=document.getElementById('navLinks');
+  nav.classList.toggle('open');
+  this.classList.toggle('open');
+});
 function handleSubmit(e) {
   e.preventDefault();
   document.getElementById('contactForm').style.display = 'none';
@@ -322,6 +334,10 @@ function handleSubmit(e) {
 </div>
 </body>
 </html>
+
+
+
+
 
 
 

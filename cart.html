@@ -126,6 +126,10 @@ footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28p
 .nav-socials a { color:rgba(255,255,255,0.6); text-decoration:none; display:flex; align-items:center; transition:color 0.3s ease; }
 .nav-socials a:hover { color:var(--red); }
 .nav-socials svg { width:15px; height:15px; fill:currentColor; }
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.hamburger span{transition:all 0.3s ease}
 @media (max-width: 540px) {
   .topbar { height: 30px; }
   .topbar marquee { font-size: 9px !important; line-height: 30px !important; letter-spacing: 1.2px !important; }
@@ -287,7 +291,11 @@ function removeItem(id) {
   renderCart();
 }
 
-document.getElementById('hbg').onclick = () => document.getElementById('navLinks').classList.toggle('open');
+document.getElementById('hbg').addEventListener('click',function(){
+  var nav=document.getElementById('navLinks');
+  nav.classList.toggle('open');
+  this.classList.toggle('open');
+});
 renderCart();
 </script>
 
@@ -308,6 +316,8 @@ renderCart();
 </div>
 </body>
 </html>
+
+
 
 
 
