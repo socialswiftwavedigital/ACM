@@ -1,477 +1,643 @@
-<title>ACM Asia Cosmetics</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACM Asia Cosmetics & Manufactures</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --navy:#141C4E;--red:#C8222A;--gold:#9A7550;
-  --bg:#F1ECE2;--bg2:#FFFFFF;--bg3:#E8E2D4;
-  --ink:#0D0E14;--ink2:#3A3D52;--muted:#6A6F86;--border:#D4CFC4;
-  --serif:'Cormorant Garamond',Georgia,serif;
-  --sans:'DM Sans',system-ui,sans-serif;
-  --mono:'DM Mono','Courier New',monospace;
-  --edge:clamp(24px,6vw,96px);--sv:clamp(80px,10vw,140px);
-  --ease:cubic-bezier(0.16,1,0.3,1);
-}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]){
-  --bg:#090B16;--bg2:#0F1226;--bg3:#141730;
-  --ink:#EDE8DC;--ink2:#C4C0B6;--muted:#888CA8;--border:#22263A;
-}}
-:root[data-theme=dark]{
-  --bg:#090B16;--bg2:#0F1226;--bg3:#141730;
-  --ink:#EDE8DC;--ink2:#C4C0B6;--muted:#888CA8;--border:#22263A;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer;border:0;background:none}ul{list-style:none}
-img{max-width:100%;display:block}
+/* ─── RESET ──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* CURSOR */
-.cur,.cur-r{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%)}
-.cur{width:8px;height:8px;background:var(--red);transition:width .25s var(--ease),height .25s var(--ease);mix-blend-mode:multiply}
-.cur-r{width:38px;height:38px;border:1px solid var(--red);opacity:.4;transition:width .35s var(--ease),height .35s var(--ease),left .1s linear,top .1s linear}
-.cur.h{width:14px;height:14px}.cur-r.h{width:60px;height:60px;opacity:.2}
-@media(hover:none){.cur,.cur-r{display:none}}
-
-/* REVEAL */
-.rv{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.rv.on{opacity:1;transform:none}
-.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
-@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}*{animation:none!important;transition:none!important}}
-
-/* NAV */
-.nav{position:sticky;top:0;z-index:100;height:80px;padding:0 var(--edge);display:flex;align-items:center;justify-content:space-between;background:var(--bg2);border-bottom:1px solid var(--border)}
-.brand{display:flex;align-items:center;gap:13px}
-.bm{font-family:var(--serif);font-size:30px;font-weight:500;font-style:italic;letter-spacing:-2px;color:var(--navy)}
-.bm span{color:var(--red)}
-.bt{font-size:7.5px;letter-spacing:1.8px;text-transform:uppercase;line-height:1.5;font-weight:600;color:var(--muted);border-left:1px solid var(--border);padding-left:13px}
-.nl{display:flex;align-items:center;gap:36px}
-.nl a{font-size:12px;font-weight:500;position:relative;padding-bottom:4px}
-.nl a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--red);transition:width .35s var(--ease)}
-.nl a:hover::after{width:100%}
-.ncta{font-size:11px;font-weight:600;letter-spacing:.5px;padding:13px 20px;background:var(--navy);color:#fff;display:inline-flex;align-items:center;gap:10px;transition:background .25s,transform .25s}
-.ncta:hover{background:var(--red);transform:translateY(-2px)}
-.hmb{display:none;flex-direction:column;gap:6px;width:28px;padding:4px 0}
-.hmb span{display:block;height:1.5px;background:var(--ink);transition:transform .35s var(--ease),opacity .25s}
-.hmb.o span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
-.hmb.o span:nth-child(2){opacity:0}
-.hmb.o span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
-@media(max-width:860px){
-  .nl{position:fixed;top:80px;left:0;right:0;background:var(--bg2);flex-direction:column;align-items:flex-start;gap:0;padding:0 var(--edge);border-bottom:1px solid var(--border);transform:translateY(-110%);transition:transform .4s var(--ease);z-index:99}
-  .nl.o{transform:translateY(0)}.nl a{padding:18px 0;border-bottom:1px solid var(--border);width:100%}.nl a::after{display:none}
-  .ncta{display:none}.hmb{display:flex}
+:root {
+  --blue:    #0D2158;
+  --blue2:   #1A3A8C;
+  --blue3:   #3D6DD4;
+  --red:     #DC2626;
+  --red2:    #B91C1C;
+  --white:   #FFFFFF;
+  --offwhite:#F4F7FF;
+  --gray:    #F0F4FF;
+  --text:    #0D2158;
+  --muted:   #5A6A8A;
+  --border:  #D6E0F5;
+  --trans:   0.3s ease;
 }
 
-/* HERO */
-.hero{min-height:calc(100svh - 80px);background:var(--navy);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
-#hc{position:absolute;inset:0;width:100%;height:100%;opacity:.3}
-.hcopy{position:relative;z-index:2;padding:var(--sv) var(--edge);display:flex;flex-direction:column;justify-content:center}
-.eyb{display:flex;align-items:center;gap:14px;margin-bottom:42px}
-.eyb::before{content:'';width:32px;height:1px;background:var(--red);flex-shrink:0}
-.eyb span{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.45)}
-h1{font-family:var(--serif);font-size:clamp(62px,7.5vw,112px);font-weight:300;font-style:italic;line-height:.92;color:#fff;letter-spacing:-.035em;text-wrap:balance;margin-bottom:32px}
-h1 em{font-style:normal;background:linear-gradient(90deg,#C8222A,#E84050,#C8222A);background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:sh 4s linear infinite}
-@keyframes sh{to{background-position:200% center}}
-.hdesc{font-size:clamp(15px,1.2vw,17px);line-height:1.85;color:rgba(255,255,255,.6);max-width:480px;margin-bottom:48px}
-.hact{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
-.btnp{display:inline-flex;align-items:center;gap:14px;padding:16px 26px;background:var(--red);color:#fff;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;transition:transform .3s var(--ease),box-shadow .3s}
-.btnp:hover{transform:translateY(-3px);box-shadow:0 18px 42px rgba(200,34,42,.4)}
-.btng{font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:rgba(255,255,255,.55);display:inline-flex;align-items:center;gap:10px;padding-bottom:4px;border-bottom:1px solid rgba(255,255,255,.2);transition:color .25s,border-color .25s}
-.btng:hover{color:#fff;border-color:rgba(255,255,255,.55)}
-.hvis{position:relative;z-index:2;display:flex;align-items:center;justify-content:center}
-/* Bottle */
-.bot{width:155px;height:330px;background:linear-gradient(135deg,#1a2860,#2a3d8f 45%,#121e5a);border-radius:22px 22px 34px 34px;position:relative;box-shadow:28px 32px 60px rgba(0,0,0,.5);animation:fl 6s ease-in-out infinite;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.9);font-family:var(--serif);font-size:28px;font-style:italic;letter-spacing:3px;flex-direction:column;gap:4px}
-.bot::before{content:'';position:absolute;top:-55px;width:90px;height:58px;background:linear-gradient(90deg,#bec1ce,#fff,#a6a9b6);border-radius:5px 5px 0 0}
-.bot::after{content:'';position:absolute;top:-72px;width:68px;height:19px;background:#1a1e42;border-radius:3px}
-.botl{font-family:var(--mono);font-size:7px;letter-spacing:2px;color:rgba(255,255,255,.35);margin-top:2px}
-.fc{position:absolute;background:rgba(255,255,255,.07);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.1);padding:13px 17px;font-family:var(--mono);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.65)}
-.fc strong{display:block;font-family:var(--serif);font-size:22px;font-style:italic;font-weight:300;color:#fff;letter-spacing:-.5px;margin-top:5px}
-.fca{top:20%;left:4%;animation:fl 7s ease-in-out infinite reverse}
-.fcb{bottom:20%;right:4%;animation:fl 5s ease-in-out infinite;animation-delay:1s}
-.fcb strong{color:var(--red)}
-.orb{position:absolute;width:52%;aspect-ratio:1;border:1px solid rgba(255,255,255,.07);border-radius:50%;animation:sp 25s linear infinite}
-.orb::before{content:'';position:absolute;width:6px;height:6px;background:var(--red);border-radius:50%;top:-3px;left:50%;transform:translateX(-50%)}
-.orb2{width:70%;animation:sp 38s linear infinite reverse;border-color:rgba(255,255,255,.04)}
-.orb2::before{background:rgba(255,255,255,.3)}
-@keyframes fl{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-18px) rotate(1.5deg)}}
-@keyframes sp{to{transform:rotate(360deg)}}
-.hscr{position:absolute;bottom:30px;left:var(--edge);font-family:var(--mono);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:16px}
-.hscr::before{content:'';width:36px;height:1px;background:rgba(255,255,255,.2)}
-@media(max-width:860px){.hero{grid-template-columns:1fr;min-height:auto}.hcopy{padding:70px var(--edge)}.hvis{min-height:420px}.hscr{display:none}}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text);
+  background: var(--white);
+  overflow-x: hidden;
+}
 
-/* TICKER */
-.tick{background:var(--red);color:#fff;padding:13px 0;overflow:hidden;display:flex}
-.tki{display:flex;animation:tk 28s linear infinite;white-space:nowrap;flex-shrink:0}
-.tki span{font-family:var(--mono);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;padding:0 26px}
-.tki span::after{content:'·';margin-left:26px}
-@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* ─── TOP BAR ─────────────────────────────────────────── */
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1001;
+  background: rgba(6,18,56,0.98);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 36px;
+}
+.topbar-tagline {
+  font-size: 10.5px; font-weight: 500; color: rgba(255,255,255,0.65);
+  letter-spacing: 1.8px; text-transform: uppercase;
+}
+.topbar-tagline span { color: var(--red); margin: 0 6px; }
+.topbar-socials { display: flex; align-items: center; gap: 18px; }
+.topbar-socials a {
+  color: rgba(255,255,255,0.55); text-decoration: none;
+  display: flex; align-items: center; justify-content: center;
+  transition: color var(--trans);
+}
+.topbar-socials a:hover { color: var(--red); }
+.topbar-socials svg { width: 15px; height: 15px; fill: currentColor; }
 
-/* ABOUT */
-.about{padding:var(--sv) var(--edge);background:var(--bg)}
-.agrid{display:grid;grid-template-columns:1fr 1fr;gap:8vw;align-items:start}
-h2{font-family:var(--serif);font-size:clamp(44px,5.5vw,76px);font-weight:300;font-style:italic;line-height:1.0;letter-spacing:-.03em;color:var(--navy);text-wrap:balance}
-h2 em{font-style:normal;color:var(--red)}
-.abp{font-family:var(--serif);font-size:clamp(18px,1.7vw,22px);line-height:1.65;color:var(--ink2);margin-bottom:40px}
-.stats{display:flex;gap:clamp(24px,4vw,60px);border-top:1px solid var(--border);padding-top:26px}
-.sn{font-family:var(--serif);font-size:36px;font-style:italic;font-weight:300;color:var(--red);line-height:1;display:block}
-.sl{font-family:var(--mono);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);display:block;margin-top:5px}
-@media(max-width:760px){.agrid{grid-template-columns:1fr;gap:36px}}
+/* ─── WA NAV BTN ─────────────────────────────────────── */
+.nav-wa { display: flex; align-items: center; gap: 8px; background: #25D366; color: var(--white); text-decoration: none; padding: 9px 16px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; transition: background var(--trans); }
+.nav-wa:hover { background: #128C7E; }
+.nav-wa svg { width: 16px; height: 16px; fill: var(--white); flex-shrink: 0; }
 
-/* COLLECTIONS */
-.coll{padding:var(--sv) var(--edge);background:var(--navy);color:#fff}
-.ch{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:52px;flex-wrap:wrap}
-.ch h2{color:#fff;line-height:.97}
-.ch p{max-width:360px;font-size:13px;line-height:1.8;color:rgba(255,255,255,.5)}
-.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.14)}
-.cc{min-height:470px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;transition:transform .4s var(--ease),box-shadow .4s}
-.cc::after{content:'';position:absolute;inset:0;background:linear-gradient(145deg,rgba(255,255,255,.1),transparent);opacity:0;transition:opacity .4s}
-.cc:hover{transform:translateY(-7px);z-index:2;box-shadow:0 30px 60px rgba(0,0,0,.4)}
-.cc:hover::after{opacity:1}
-.cream{background:#B8845A}.serum{background:#7A3E44}.wash{background:#3D6B75}
-.jelly{background:#8F6B5A}.lotion{background:#6E7847}.shampoo{background:#455A8A}
-.ct{display:flex;justify-content:space-between;align-items:flex-start;position:relative;z-index:1}
-.cn{font-family:var(--mono);font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.45)}
-.ca{font-size:17px;color:rgba(255,255,255,.45);transition:transform .35s var(--ease),color .25s}
-.cc:hover .ca{transform:translate(5px,-5px);color:#fff}
-/* CSS product symbol */
-.csym{display:flex;align-items:flex-end;justify-content:center;gap:9px;height:165px;position:relative;z-index:1}
-.csym i{display:block;border-radius:7px 7px 14px 14px;background:linear-gradient(170deg,rgba(255,255,255,.8),rgba(255,255,255,.45));box-shadow:12px 16px 24px rgba(0,0,0,.2);transition:height .4s var(--ease),transform .4s var(--ease)}
-.csym i:nth-child(1){width:50px;height:108px}.csym i:nth-child(2){width:60px;height:142px}.csym i:nth-child(3){width:44px;height:86px}
-.cc:hover .csym i:nth-child(1){height:120px;transform:translateY(-5px)}
-.cc:hover .csym i:nth-child(2){height:158px;transform:translateY(-10px)}
-.cc:hover .csym i:nth-child(3){height:98px;transform:translateY(-5px)}
-.cbody{position:relative;z-index:1}
-.cbody h3{font-family:var(--serif);font-size:33px;font-weight:300;font-style:italic;letter-spacing:-.5px;margin-bottom:10px;line-height:1}
-/* Variants flip */
-.cvwrap{position:relative;min-height:36px}
-.cbr{font-family:var(--mono);font-size:8.5px;letter-spacing:1.2px;text-transform:uppercase;line-height:1.8;color:rgba(255,255,255,.55);transition:opacity .2s}
-.cc:hover .cbr{opacity:0;pointer-events:none}
-.cfl{position:absolute;top:0;left:0;right:0;display:flex;flex-wrap:wrap;gap:5px;opacity:0;transition:opacity .35s .1s}
-.cc:hover .cfl{opacity:1}
-.cfl li{font-family:var(--mono);font-size:7.5px;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.8);background:rgba(255,255,255,.12);padding:3px 8px;border-radius:2px}
-@media(max-width:860px){.cgrid{grid-template-columns:repeat(2,1fr)}.cc{min-height:380px}}
-@media(max-width:560px){.cgrid{grid-template-columns:1fr}.cc{min-height:340px}}
+/* ─── NAV ─────────────────────────────────────────────── */
+nav {
+  position: fixed; top: 36px; left: 0; right: 0; z-index: 1000;
+  background: var(--blue);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 72px;
+  box-shadow: 0 4px 24px rgba(13,33,88,0.35);
+}
 
-/* PROMISE */
-.prom{display:grid;grid-template-columns:42% 58%}
-.pvis{background:var(--red);padding:var(--sv) clamp(32px,5vw,70px);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;gap:28px;position:relative;overflow:hidden;min-height:560px}
-.pvis::before{content:'';position:absolute;inset:12%;border:1px solid rgba(255,255,255,.14)}
-.pring{width:230px;height:230px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:grid;place-items:center;box-shadow:0 0 0 40px rgba(255,255,255,.04),0 0 0 80px rgba(255,255,255,.03);position:relative;z-index:1}
-.pring span{font-family:var(--serif);font-size:60px;font-style:italic;font-weight:300}
-.pvf{font-family:var(--mono);font-size:8px;letter-spacing:2.5px;text-transform:uppercase;text-align:center;line-height:1.8;opacity:.55;position:relative;z-index:1}
-.pcopy{padding:var(--sv) clamp(32px,5vw,80px);background:var(--bg);display:flex;flex-direction:column;justify-content:center;gap:22px}
-.pk{font-family:var(--mono);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--red)}
-.pcopy h2{color:var(--navy)}
-.pcopy>p:not(.pk){font-size:15px;line-height:1.85;color:var(--ink2);max-width:520px}
-.pl{border-top:1px solid var(--border);margin-top:8px}
-.pl li{display:flex;align-items:center;gap:22px;padding:17px 0;border-bottom:1px solid var(--border);font-family:var(--serif);font-size:17px;font-style:italic;font-weight:300}
-.pl li span{font-family:var(--mono);font-size:8px;letter-spacing:1.5px;color:var(--red);font-style:normal;flex-shrink:0}
-@media(max-width:760px){.prom{grid-template-columns:1fr}.pvis{min-height:360px}}
+.nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.logo-badge {
+  width: 46px; height: 46px; border-radius: 10px;
+  background: var(--red);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 900; color: var(--white);
+  letter-spacing: 0.5px; box-shadow: 0 4px 12px rgba(220,38,38,0.4);
+}
+.logo-words { line-height: 1.15; }
+.logo-words .top { display: block; font-size: 17px; font-weight: 800; color: var(--white); letter-spacing: 0.3px; }
+.logo-words .sub { display: block; font-size: 9px; font-weight: 400; color: rgba(255,255,255,0.5); letter-spacing: 2.5px; text-transform: uppercase; }
 
-/* PROCESS */
-.proc{padding:var(--sv) var(--edge);background:#171B31;color:#fff}
-.proch{margin-bottom:60px}
-.proc h2{color:#fff;margin-top:22px}
-.stp{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.14)}
-.st{padding:30px 22px;border-right:1px solid rgba(255,255,255,.1);position:relative;transition:background .35s,transform .35s var(--ease);min-height:270px;display:flex;flex-direction:column}
-.st:last-child{border-right:0}
-.st:hover{background:var(--red);transform:translateY(-6px)}
-.snum{font-family:var(--mono);font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.35);margin-bottom:56px}
-.st h3{font-family:var(--serif);font-size:28px;font-weight:300;font-style:italic;margin-bottom:14px;line-height:1}
-.st p{font-size:12px;line-height:1.8;color:rgba(255,255,255,.55);flex:1}
-.sarr{font-size:18px;color:rgba(255,255,255,.4);align-self:flex-end;transition:transform .3s var(--ease),color .25s}
-.st:hover .sarr{transform:translate(5px,-5px);color:#fff}
-@media(max-width:860px){.stp{grid-template-columns:repeat(2,1fr)}.st:nth-child(2){border-right:0}}
-@media(max-width:560px){.stp{grid-template-columns:1fr}.st{border-right:0;border-bottom:1px solid rgba(255,255,255,.1);min-height:auto}.st:last-child{border-bottom:0}}
+.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+.nav-links a {
+  color: rgba(255,255,255,0.8); text-decoration: none;
+  font-size: 12.5px; font-weight: 500; letter-spacing: 0.3px;
+  text-transform: uppercase; transition: color var(--trans);
+  position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 2px; background: var(--red); transform: scaleX(0);
+  transition: transform var(--trans); transform-origin: left;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-cta {
+  background: var(--red) !important; color: var(--white) !important;
+  padding: 11px 24px; border-radius: 6px; font-weight: 700 !important;
+  letter-spacing: 0.5px; box-shadow: 0 4px 14px rgba(220,38,38,0.4);
+  transition: background var(--trans) !important;
+}
+.nav-cta:hover { background: var(--red2) !important; }
+.nav-cta::after { display: none !important; }
 
-/* CONTACT */
-.con{padding:var(--sv) var(--edge);background:var(--bg3);text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px}
-.ceyb{display:flex;align-items:center;gap:14px;justify-content:center}
-.ceyb::before,.ceyb::after{content:'';width:32px;height:1px;background:var(--red)}
-.ceyb span{font-family:var(--mono);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
-.con h2{color:var(--navy);max-width:14ch}
-.con>p{font-size:15px;line-height:1.8;color:var(--muted);max-width:48ch}
-.cact{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px}
-.btnc{display:inline-flex;align-items:center;gap:12px;padding:17px 28px;background:var(--navy);color:#fff;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;transition:background .25s,transform .3s var(--ease),box-shadow .3s}
-.btnc:hover{background:var(--red);transform:translateY(-3px);box-shadow:0 16px 40px rgba(200,34,42,.3)}
-.btnc2{display:inline-flex;align-items:center;gap:12px;padding:16px 28px;border:1px solid var(--border);color:var(--ink2);font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;transition:border-color .25s,color .25s,transform .3s var(--ease)}
-.btnc2:hover{border-color:var(--navy);color:var(--navy);transform:translateY(-3px)}
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--white); }
 
-/* FOOTER */
-footer{background:#090B16;color:#fff;padding:76px var(--edge) 34px}
-.fi{display:grid;grid-template-columns:2fr 1fr 1fr 1.6fr;gap:clamp(28px,4vw,56px);margin-bottom:56px}
-.fbm{font-family:var(--serif);font-size:48px;font-style:italic;font-weight:300;letter-spacing:-2px;color:#fff;display:block;margin-bottom:12px}
-.fbm span{color:var(--red)}
-.fbrand p{font-family:var(--mono);font-size:8px;letter-spacing:2px;text-transform:uppercase;line-height:1.8;color:rgba(255,255,255,.35);max-width:190px}
-.fc2 small{font-family:var(--mono);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.28);display:block;margin-bottom:16px}
-.fc2 a,.fc2 p{display:block;font-size:12px;color:rgba(255,255,255,.5);padding:5px 0;transition:color .2s}
-.fc2 a:hover{color:#fff}
-.fbot{border-top:1px solid rgba(255,255,255,.08);padding-top:26px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
-.fbot p{font-family:var(--mono);font-size:8px;letter-spacing:1.5px;color:rgba(255,255,255,.28)}
-@media(max-width:760px){.fi{grid-template-columns:1fr 1fr}.fbrand{grid-column:1/-1}}
-@media(max-width:460px){.fi{grid-template-columns:1fr}}
+/* ─── HERO SLIDER ─────────────────────────────────────── */
+.hero {
+  position: relative; width: 100%;
+  height: 520px;
+  margin-top: 108px; overflow: hidden; background: var(--blue);
+}
 
-/* label util */
-.lbl{font-family:var(--mono);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted)}
-.lbl.lt{color:rgba(255,255,255,.45)}
+.slide {
+  position: absolute; inset: 0;
+  opacity: 0; transition: opacity 0.8s ease;
+  pointer-events: none;
+  background-size: cover; background-position: center top; background-repeat: no-repeat;
+}
+.slide.active { opacity: 1; pointer-events: all; }
+
+/* Real product images as backgrounds */
+.slide-1 { background-image: url('slide-creams.png'); }
+.slide-2 { background-image: url('slide-serums.png'); }
+.slide-3 { background-image: url('slide-facewash.png'); }
+.slide-4 { background-image: url('slide-pjelly.png'); }
+.slide-5 { background-image: url('slide-lotions.png'); }
+.slide-6 { background-image: url('slide-shampoo.png'); }
+
+/* Explore button overlay at bottom-center */
+.slide-cta-overlay {
+  position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%);
+  opacity: 0; transition: opacity 0.6s ease 0.4s, transform 0.6s ease 0.4s;
+  transform: translateX(-50%) translateY(20px);
+}
+.slide.active .slide-cta-overlay {
+  opacity: 1; transform: translateX(-50%) translateY(0);
+}
+
+/* Slider controls */
+.slider-dots {
+  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 8px; z-index: 10;
+}
+.dot {
+  width: 28px; height: 4px; border-radius: 2px;
+  background: rgba(13,33,88,0.2); cursor: pointer; transition: all var(--trans);
+}
+.dot.active { background: var(--red); width: 40px; }
+
+.slider-arrows {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 100%; display: flex; justify-content: space-between;
+  padding: 0 18px; z-index: 10; pointer-events: none;
+}
+.arr {
+  pointer-events: all; cursor: pointer;
+  width: 50px; height: 50px; background: var(--white);
+  border: 2px solid var(--border); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; color: var(--blue);
+  transition: all var(--trans); box-shadow: 0 4px 14px rgba(13,33,88,0.1);
+}
+.arr:hover { background: var(--blue); color: var(--white); border-color: var(--blue); }
+
+/* Slide CTA button */
+.slide-btn {
+  display: inline-block; background: var(--red); color: var(--white);
+  padding: 16px 44px; font-size: 13px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; text-decoration: none;
+  border: 2px solid var(--red); border-radius: 4px;
+  transition: background var(--trans), color var(--trans), border-color var(--trans);
+  box-shadow: 0 4px 20px rgba(220,38,38,0.5);
+}
+.slide-btn:hover { background: #000000; color: var(--white); border-color: #000000; }
+
+/* ─── TICKER ─────────────────────────────────────────── */
+.ticker { background: var(--blue); color: var(--white); padding: 11px 0; overflow: hidden; white-space: nowrap; }
+.ticker-track { display: inline-block; animation: tick 22s linear infinite; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; }
+@keyframes tick { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.ti { display: inline-block; padding: 0 36px; }
+.tsep { opacity: 0.35; margin: 0 4px; color: var(--red); }
+
+/* ─── SECTIONS ───────────────────────────────────────── */
+.section { padding: 100px 48px; }
+.container { max-width: 1200px; margin: 0 auto; }
+
+.sec-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--red); margin-bottom: 14px;
+}
+.sec-eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--red); display: block; }
+.sec-title {
+  font-size: clamp(34px, 4.5vw, 58px); font-weight: 900; line-height: 1.05;
+  text-transform: uppercase; color: var(--blue); letter-spacing: -0.5px;
+}
+.sec-title em { font-style: normal; color: var(--red); }
+
+/* ─── ABOUT ──────────────────────────────────────────── */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.about-copy p { font-size: 15.5px; line-height: 1.85; color: var(--muted); margin-top: 22px; }
+.about-copy strong { color: var(--blue); font-weight: 700; }
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+.stat-card { padding: 26px 22px; border-radius: 10px; background: var(--gray); border-left: 4px solid var(--blue); transition: border-color var(--trans); }
+.stat-card:nth-child(even) { border-color: var(--red); }
+.stat-card:hover { border-color: var(--red); }
+.stat-num { font-size: 42px; font-weight: 900; line-height: 1; color: var(--blue); }
+.stat-num span { color: var(--red); }
+.stat-lbl { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
+
+.about-visual { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 14px; height: 480px; }
+.av { border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px; font-weight: 900; font-size: 17px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--white); transition: transform var(--trans); }
+.av:hover { transform: scale(1.02); }
+.av small { font-size: 10px; font-weight: 500; letter-spacing: 2px; opacity: 0.75; display: block; margin-top: 6px; text-transform: uppercase; }
+.av1 { background: linear-gradient(135deg, var(--blue), var(--blue2)); }
+.av2 { background: linear-gradient(135deg, var(--red), var(--red2)); grid-row: span 2; }
+.av3 { background: linear-gradient(135deg, var(--blue2), var(--blue3)); }
+.av4 { background: linear-gradient(135deg, var(--red2), #f87171); }
+
+/* ─── PRODUCTS ───────────────────────────────────────── */
+.products-section { background: var(--offwhite); }
+.products-header { text-align: center; margin-bottom: 56px; }
+.products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+
+.product-card { background: var(--white); border-radius: 12px; box-shadow: 0 4px 20px rgba(13,33,88,0.07); overflow: hidden; transition: all 0.4s ease; }
+.product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 48px rgba(13,33,88,0.16); }
+
+.pc-head { height: 200px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.pc-letters { font-size: 72px; font-weight: 900; color: rgba(255,255,255,0.2); letter-spacing: -3px; user-select: none; }
+.pc-badge { position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,0.2); color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.3); }
+.ph1 { background: linear-gradient(135deg, #0d2158, #1a3a8c); }
+.ph2 { background: linear-gradient(135deg, #dc2626, #ef4444); }
+.ph3 { background: linear-gradient(135deg, #1e4bb8, #3d6dd4); }
+.ph4 { background: linear-gradient(135deg, #b91c1c, #dc2626); }
+.ph5 { background: linear-gradient(135deg, #1a3a8c, #3d6dd4); }
+.ph6 { background: linear-gradient(135deg, #0d2158, #b91c1c); }
+
+.pc-body { padding: 26px; }
+.pc-tag { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
+.pc-name { font-size: 22px; font-weight: 900; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; letter-spacing: -0.3px; }
+.pc-desc { font-size: 13.5px; color: var(--muted); line-height: 1.75; }
+.pc-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; font-size: 11.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--blue); text-decoration: none; border-bottom: 2px solid var(--red); padding-bottom: 2px; transition: gap var(--trans), color var(--trans); }
+.pc-link:hover { gap: 12px; color: var(--red); }
+
+/* ─── WHY ────────────────────────────────────────────── */
+.why-section { background: var(--blue); }
+.why-section .sec-title { color: var(--white); }
+.why-section .sec-eyebrow { color: var(--red); }
+.why-section .sec-eyebrow::before { background: var(--red); }
+.why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; margin-top: 56px; }
+.why-card { text-align: center; }
+.why-icon { width: 74px; height: 74px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 20px; background: rgba(255,255,255,0.06); transition: all var(--trans); }
+.why-card:hover .why-icon { background: var(--red); border-color: var(--red); }
+.why-card h3 { font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--white); margin-bottom: 10px; }
+.why-card p { font-size: 13.5px; color: rgba(255,255,255,0.5); line-height: 1.8; }
+
+/* ─── PROCESS ────────────────────────────────────────── */
+.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 56px; position: relative; }
+.process-grid::before { content: ''; position: absolute; top: 37px; left: 12%; right: 12%; height: 2px; background: var(--border); }
+.proc-step { text-align: center; padding: 0 18px; }
+.proc-num { width: 74px; height: 74px; border-radius: 50%; background: var(--white); border: 3px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900; color: var(--blue); margin: 0 auto 20px; position: relative; z-index: 1; transition: all var(--trans); }
+.proc-step:hover .proc-num { background: var(--red); border-color: var(--red); color: var(--white); }
+.proc-step h3 { font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; color: var(--blue); margin-bottom: 10px; }
+.proc-step p { font-size: 13.5px; color: var(--muted); line-height: 1.75; }
+
+/* ─── CTA ────────────────────────────────────────────── */
+.cta-section { background: var(--red); padding: 100px 48px; text-align: center; }
+.cta-section h2 { font-size: clamp(38px, 5.5vw, 68px); font-weight: 900; text-transform: uppercase; color: var(--white); line-height: 1.05; margin-bottom: 18px; letter-spacing: -0.5px; }
+.cta-section p { font-size: 17px; color: rgba(255,255,255,0.7); max-width: 480px; margin: 0 auto 40px; }
+.cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn-white { display: inline-block; background: var(--white); color: var(--red); padding: 17px 44px; font-size: 12.5px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; border-radius: 6px; border: 2px solid var(--white); transition: all var(--trans); }
+.btn-white:hover { background: transparent; color: var(--white); }
+.btn-outline-w { display: inline-block; background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.5); padding: 15px 44px; font-size: 12.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; border-radius: 6px; transition: all var(--trans); }
+.btn-outline-w:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+/* ─── FOOTER ─────────────────────────────────────────── */
+footer { background: var(--blue); padding: 72px 48px 30px; }
+.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
+.fb-brand p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.85; margin-top: 16px; }
+.fc h4 { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--white); margin-bottom: 18px; }
+.fc ul { list-style: none; }
+.fc ul li { margin-bottom: 10px; }
+.fc ul li a { color: var(--white); text-decoration: none; font-size: 14px; transition: color var(--trans); }
+.fc ul li a:hover { color: var(--red); }
+.footer-btm { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(255,255,255,0.3); }
+.socials { display: flex; gap: 12px; }
+.socials a { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.45); text-decoration: none; font-size: 13px; font-weight: 700; transition: all var(--trans); }
+.socials a:hover { border-color: var(--red); color: var(--red); }
+
+/* ─── SCROLL REVEAL ──────────────────────────────────── */
+.reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.75s ease, transform 0.75s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+.d1{transition-delay:0.1s} .d2{transition-delay:0.2s} .d3{transition-delay:0.3s} .d4{transition-delay:0.4s}
+
+.nav-dropdown{position:relative}
+.nav-dropdown>a{display:flex;align-items:center;gap:5px}
+.nav-dropdown>a::after{display:none!important}
+.drop-caret{width:10px;height:10px;flex-shrink:0;transition:transform 0.3s ease;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.nav-dropdown:hover .drop-caret{transform:rotate(180deg)}
+.drop-menu{position:absolute;top:calc(100% + 18px);left:50%;transform:translateX(-50%) translateY(8px);background:#0D2158;min-width:190px;border-radius:10px;box-shadow:0 16px 40px rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.12);padding:8px 0;opacity:0;visibility:hidden;pointer-events:none;transition:all 0.2s ease;z-index:999}
+.nav-dropdown:hover .drop-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.drop-menu a{display:block;padding:10px 20px;color:rgba(255,255,255,0.72);font-size:11.5px;font-weight:500;letter-spacing:0.3px;text-decoration:none;transition:all 0.2s ease;white-space:nowrap}
+.drop-menu a:hover{color:#fff;background:rgba(255,255,255,0.08);padding-left:26px}
+.drop-menu a::after{display:none!important}
+.drop-menu::before{content:'';position:absolute;top:-18px;left:0;right:0;height:18px}
+
+/* ─── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: var(--blue); flex-direction: column; align-items: center; justify-content: center; gap: 28px; }
+  .nav-links.open { display: flex; }
+  .hamburger { display: flex; }
+  .drop-menu{position:static;transform:none!important;opacity:1;visibility:visible;pointer-events:auto;box-shadow:none;border:none;background:rgba(255,255,255,0.05);border-radius:0;padding:0;margin-top:8px;margin-left:0}
+  .drop-menu a{padding:8px 0 8px 16px;border-bottom:1px solid rgba(255,255,255,0.05);font-size:11px}
+  .drop-caret{display:none}
+  .slide-inner { grid-template-columns: 1fr; padding: 0 28px; }
+  .slide-visual { display: none; }
+  .slide-title { font-size: 50px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .products-grid { grid-template-columns: 1fr 1fr; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .process-grid { grid-template-columns: 1fr 1fr; }
+  .process-grid::before { display: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+}
+@media (max-width: 540px) {
+  .products-grid, .why-grid, .process-grid, .footer-grid, .stats-grid { grid-template-columns: 1fr; }
+  .slide-title { font-size: 40px; }
+  .section { padding: 70px 20px; }
+}
 </style>
+</head>
+<body>
 
-<div class="cur" id="cur"></div>
-<div class="cur-r" id="curR"></div>
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-tagline">Your Trusted<span>✦</span>Cosmetics Manufacturing Partner</div>
+  <div class="topbar-socials">
+    <a href="https://facebook.com" aria-label="Facebook" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <a href="https://instagram.com" aria-label="Instagram" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+    </a>
+    <a href="https://wa.me/923001234567" aria-label="WhatsApp" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+    </a>
+    <a href="https://tiktok.com" aria-label="TikTok" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.22 8.22 0 0 0 4.82 1.56V6.79a4.85 4.85 0 0 1-1.05-.1z"/></svg>
+    </a>
+  </div>
+</div>
 
 <!-- NAV -->
-<header class="nav" id="nav">
-  <a class="brand" href="#top">
-    <span class="bm">A<span>C</span>M</span>
-    <span class="bt">Asia Cosmetics<br>Manufacturing</span>
+<nav>
+  <a class="nav-logo" href="index.html">
+    <div class="logo-badge">ACM</div>
+    <div class="logo-words">
+      <span class="top">ACM Asia</span>
+      <span class="sub">Cosmetics &amp; Manufactures</span>
+    </div>
   </a>
-  <nav class="nl" id="nl">
-    <a href="#about">About</a>
-    <a href="#collections">Collections</a>
-    <a href="#process">Private Label</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <a class="ncta" href="#contact">Start your brand ↗</a>
-  <button class="hmb" id="hmb" aria-label="Menu" aria-expanded="false">
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="nav-dropdown"><a href="collections.html">Products<svg class="drop-caret" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a><div class="drop-menu"><a href="category.html?cat=Creams">Creams</a><a href="category.html?cat=Serums">Serums</a><a href="category.html?cat=Face+Wash">Face Wash</a><a href="category.html?cat=Petroleum+Jelly">Petroleum Jelly</a><a href="category.html?cat=Lotions">Lotions</a><a href="category.html?cat=Shampoo">Shampoo</a></div></li>
+    <li><a href="index.html#process">Process</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="collections.html" class="nav-cta">View Catalogue</a></li>
+  </ul>
+  <a href="https://wa.me/923001234567" target="_blank" class="nav-wa" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+    Order Now
+  </a>
+  <button class="hamburger" id="hbg" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
-</header>
+</nav>
 
 <!-- HERO -->
-<section class="hero" id="top">
-  <canvas id="hc"></canvas>
-  <div class="hcopy">
-    <div class="eyb rv"><span>Private-label beauty manufacturing — Pakistan</span></div>
-    <h1 class="rv d1">Your beauty<br>brand, <em>made real.</em></h1>
-    <p class="hdesc rv d2">From first formula to finished product, ACM helps ambitious founders create distinctive skincare and haircare ranges — with precision and confidence.</p>
-    <div class="hact rv d3">
-      <a href="#collections" class="btnp mag">Explore capabilities →</a>
-      <a href="#process" class="btng">How it works ↓</a>
+<section class="hero">
+
+  <!-- Slide 1 – Creams -->
+  <div class="slide slide-1 active">
+    <div class="slide-cta-overlay">
+      <a href="collections.html" class="slide-btn">Explore Creams</a>
     </div>
   </div>
-  <div class="hvis">
-    <div class="orb"></div>
-    <div class="orb orb2"></div>
-    <div class="fc fca">Formula<strong>01</strong></div>
-    <div class="bot">ACM<span class="botl">your formula</span></div>
-    <div class="fc fcb">Private Label<strong>ACM</strong></div>
+
+  <!-- Slide 2 – Serums -->
+  <div class="slide slide-2">
+    <div class="slide-cta-overlay">
+      <a href="collections.html" class="slide-btn">Explore Serums</a>
+    </div>
   </div>
-  <p class="hscr">Scroll to discover</p>
+
+  <!-- Slide 3 – Face Wash -->
+  <div class="slide slide-3">
+    <div class="slide-cta-overlay">
+      <a href="collections.html" class="slide-btn">Explore Face Wash</a>
+    </div>
+  </div>
+
+  <!-- Slide 4 – Petroleum Jelly -->
+  <div class="slide slide-4">
+    <div class="slide-cta-overlay">
+      <a href="collections.html" class="slide-btn">Explore Petroleum Jelly</a>
+    </div>
+  </div>
+
+  <!-- Slide 5 – Lotions -->
+  <div class="slide slide-5">
+    <div class="slide-cta-overlay">
+      <a href="collections.html" class="slide-btn">Explore Lotions</a>
+    </div>
+  </div>
+
+  <!-- Slide 6 – Shampoo -->
+  <div class="slide slide-6">
+    <div class="slide-cta-overlay">
+      <a href="collections.html" class="slide-btn">Explore Shampoo</a>
+    </div>
+  </div>
+
+  <div class="slider-arrows">
+    <div class="arr" id="prev">&#8592;</div>
+    <div class="arr" id="next">&#8594;</div>
+  </div>
+  <div class="slider-dots" id="dots">
+    <div class="dot active" data-i="0"></div>
+    <div class="dot" data-i="1"></div>
+    <div class="dot" data-i="2"></div>
+    <div class="dot" data-i="3"></div>
+    <div class="dot" data-i="4"></div>
+    <div class="dot" data-i="5"></div>
+  </div>
 </section>
 
 <!-- TICKER -->
-<div class="tick" aria-hidden="true">
-  <div class="tki" id="tki"></div>
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ti">Creams <span class="tsep">✦</span></span>
+    <span class="ti">Serums <span class="tsep">✦</span></span>
+    <span class="ti">Face Wash <span class="tsep">✦</span></span>
+    <span class="ti">Petroleum Jelly <span class="tsep">✦</span></span>
+    <span class="ti">Body Lotions <span class="tsep">✦</span></span>
+    <span class="ti">Hair Shampoo <span class="tsep">✦</span></span>
+    <span class="ti">ACM Asia Cosmetics &amp; Manufactures <span class="tsep">✦</span></span>
+    <span class="ti">Creams <span class="tsep">✦</span></span>
+    <span class="ti">Serums <span class="tsep">✦</span></span>
+    <span class="ti">Face Wash <span class="tsep">✦</span></span>
+    <span class="ti">Petroleum Jelly <span class="tsep">✦</span></span>
+    <span class="ti">Body Lotions <span class="tsep">✦</span></span>
+    <span class="ti">Hair Shampoo <span class="tsep">✦</span></span>
+    <span class="ti">ACM Asia Cosmetics &amp; Manufactures <span class="tsep">✦</span></span>
+  </div>
 </div>
 
 <!-- ABOUT -->
-<section class="about" id="about">
-  <div class="agrid">
-    <h2 class="rv">Built for brands<br>with <em>big ideas.</em></h2>
-    <div>
-      <p class="abp rv d1">Asia Cosmetics Manufacturing Pvt. Ltd. is a private-label manufacturing partner established in 2012. We turn product concepts into polished, shelf-ready cosmetic collections.</p>
-      <div class="stats rv d2">
-        <div><span class="sn">2012</span><span class="sl">Established</span></div>
-        <div><span class="sn">6+</span><span class="sl">Core categories</span></div>
-        <div><span class="sn">360°</span><span class="sl">Brand support</span></div>
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <div class="sec-eyebrow">Who We Are</div>
+        <h2 class="sec-title">Your Trusted<br><em>Beauty</em> Partner</h2>
+        <p>ACM Asia Cosmetics &amp; Manufactures Private Limited is Pakistan's premium cosmetics manufacturing company. We formulate, produce and supply <strong>world-class beauty products</strong> that meet the highest international quality standards.</p>
+        <p>From concept to finished product, our state-of-the-art facility handles everything — R&amp;D, formulation, filling, packaging and quality control — all under one roof.</p>
+        <div class="stats-grid">
+          <div class="stat-card reveal d1"><div class="stat-num">40<span>+</span></div><div class="stat-lbl">Products</div></div>
+          <div class="stat-card reveal d2"><div class="stat-num">6</div><div class="stat-lbl">Categories</div></div>
+          <div class="stat-card reveal d3"><div class="stat-num">100<span>%</span></div><div class="stat-lbl">Quality Tested</div></div>
+          <div class="stat-card reveal d4"><div class="stat-num">10<span>+</span></div><div class="stat-lbl">Yrs Experience</div></div>
+        </div>
+      </div>
+      <div class="about-visual reveal d2">
+        <div class="av av1">Creams<small>6 Variants</small></div>
+        <div class="av av2">Serums<small>7 Variants</small></div>
+        <div class="av av3">Petro Jelly<small>4 Variants</small></div>
+        <div class="av av4">Shampoo<small>10 Variants</small></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COLLECTIONS -->
-<section class="coll" id="collections">
-  <div class="ch">
-    <div>
-      <div class="lbl lt rv">What we make</div>
-      <h2 class="rv d1">One partner.<br><em>Every essential.</em></h2>
+<!-- PRODUCTS -->
+<section class="section products-section" id="products">
+  <div class="container">
+    <div class="products-header reveal">
+      <div class="sec-eyebrow">Our Range</div>
+      <h2 class="sec-title">Complete <em>Beauty</em> Range</h2>
     </div>
-    <p class="rv d2">Six flexible product categories for brands ready to stand out. Hover a card to see all variants.</p>
-  </div>
-  <div class="cgrid">
-    <article class="cc cream rv">
-      <div class="ct"><span class="cn">01</span><span class="ca">↗</span></div>
-      <div class="csym"><i></i><i></i><i></i></div>
-      <div class="cbody">
-        <h3>Creams</h3>
-        <div class="cvwrap">
-          <p class="cbr">Vitamin C · Anti-Aging · Anti-Acne · Brightness Formula</p>
-          <ul class="cfl"><li>Vitamin C Cream</li><li>Anti-Aging</li><li>Anti-Freckles</li><li>Anti-Acne</li><li>Vitamin B3 Cream</li><li>Brightness Formula</li></ul>
-        </div>
+    <div class="products-grid">
+      <div class="product-card reveal d1">
+        <div class="pc-head ph1"><div class="pc-letters">CR</div><div class="pc-badge">6 Variants</div></div>
+        <div class="pc-body"><div class="pc-tag">Skincare</div><div class="pc-name">Creams</div><p class="pc-desc">Day cream, night cream, brightening, anti-ageing, SPF shield and BB cream — complete facial care.</p><a href="category.html?cat=Creams" class="pc-link">Shop Now →</a></div>
       </div>
-    </article>
-    <article class="cc serum rv d1">
-      <div class="ct"><span class="cn">02</span><span class="ca">↗</span></div>
-      <div class="csym"><i></i><i></i><i></i></div>
-      <div class="cbody">
-        <h3>Serums</h3>
-        <div class="cvwrap">
-          <p class="cbr">Niacinamide · Hyaluronic Acid · Alpha Arbutin · Zinc PCA</p>
-          <ul class="cfl"><li>Niacinamide</li><li>Hyaluronic Acid</li><li>Salicylic Acid</li><li>Zinc PCA</li><li>Glutathione</li><li>Alpha Arbutin</li><li>Vitamin B-5</li></ul>
-        </div>
+      <div class="product-card reveal d2">
+        <div class="pc-head ph2"><div class="pc-letters">SR</div><div class="pc-badge">7 Variants</div></div>
+        <div class="pc-body"><div class="pc-tag">Treatment</div><div class="pc-name">Serums</div><p class="pc-desc">Vitamin C, hyaluronic acid, retinol, niacinamide — high-performance targeted treatments.</p><a href="category.html?cat=Serums" class="pc-link">Shop Now →</a></div>
       </div>
-    </article>
-    <article class="cc wash rv d2">
-      <div class="ct"><span class="cn">03</span><span class="ca">↗</span></div>
-      <div class="csym"><i></i><i></i><i></i></div>
-      <div class="cbody">
-        <h3>Face Wash</h3>
-        <div class="cvwrap">
-          <p class="cbr">Foaming · Creamy · Gel · Pearly Shine</p>
-          <ul class="cfl"><li>Foaming</li><li>Creamy</li><li>Gel (Transparent)</li><li>Pearly Shine</li></ul>
-        </div>
+      <div class="product-card reveal d3">
+        <div class="pc-head ph3"><div class="pc-letters">FW</div><div class="pc-badge">4 Variants</div></div>
+        <div class="pc-body"><div class="pc-tag">Cleansing</div><div class="pc-name">Face Wash</div><p class="pc-desc">Foaming, gel, cream and micellar cleansers — gentle for daily use, effective on all skin types.</p><a href="category.html?cat=Face+Wash" class="pc-link">Shop Now →</a></div>
       </div>
-    </article>
-    <article class="cc jelly rv">
-      <div class="ct"><span class="cn">04</span><span class="ca">↗</span></div>
-      <div class="csym"><i></i><i></i><i></i></div>
-      <div class="cbody">
-        <h3>Petroleum Jelly</h3>
-        <div class="cvwrap">
-          <p class="cbr">Scented · Unscented · Coloured · Uncoloured</p>
-          <ul class="cfl"><li>Scented</li><li>Unscented</li><li>Coloured</li><li>Uncoloured</li></ul>
-        </div>
+      <div class="product-card reveal d1">
+        <div class="pc-head ph4"><div class="pc-letters">PJ</div><div class="pc-badge">4 Variants</div></div>
+        <div class="pc-body"><div class="pc-tag">Protection</div><div class="pc-name">Petroleum Jelly</div><p class="pc-desc">Original, aloe vera, vitamin E and rose — pharmaceutical grade for skin &amp; lip protection.</p><a href="category.html?cat=Petroleum+Jelly" class="pc-link">Shop Now →</a></div>
       </div>
-    </article>
-    <article class="cc lotion rv d1">
-      <div class="ct"><span class="cn">05</span><span class="ca">↗</span></div>
-      <div class="csym"><i></i><i></i><i></i></div>
-      <div class="cbody">
-        <h3>Lotions</h3>
-        <div class="cvwrap">
-          <p class="cbr">Brightening · Vitamin C · Cocoa Butter · Aloe Vera</p>
-          <ul class="cfl"><li>Brightening</li><li>Niacinamide</li><li>Vitamin C</li><li>Cleansing</li><li>Honey</li><li>Cocoa Butter</li><li>Lavender</li><li>Aloe Vera</li><li>Multi-Purpose</li></ul>
-        </div>
+      <div class="product-card reveal d2">
+        <div class="pc-head ph5"><div class="pc-letters">LT</div><div class="pc-badge">9 Variants</div></div>
+        <div class="pc-body"><div class="pc-tag">Moisturising</div><div class="pc-name">Lotions</div><p class="pc-desc">Nine body lotion variants — moisturising, brightening, firming, summer fresh and sensitive formulas.</p><a href="category.html?cat=Lotions" class="pc-link">Shop Now →</a></div>
       </div>
-    </article>
-    <article class="cc shampoo rv d2">
-      <div class="ct"><span class="cn">06</span><span class="ca">↗</span></div>
-      <div class="csym"><i></i><i></i><i></i></div>
-      <div class="cbody">
-        <h3>Shampoo</h3>
-        <div class="cvwrap">
-          <p class="cbr">Keratin · Anti-Dandruff · Sulphate-Free · Onion</p>
-          <ul class="cfl"><li>Keratin</li><li>Anti-Dandruff</li><li>Sulphate Free</li><li>Herbal</li><li>Onion</li><li>Egg</li><li>Almond</li><li>Coconut</li><li>Strengthening</li><li>Men's Shampoo</li></ul>
-        </div>
+      <div class="product-card reveal d3">
+        <div class="pc-head ph6"><div class="pc-letters">SH</div><div class="pc-badge">10 Variants</div></div>
+        <div class="pc-body"><div class="pc-tag">Hair Care</div><div class="pc-name">Shampoo</div><p class="pc-desc">Ten shampoo formulas — anti-dandruff, keratin, volume, hydrating, colour safe and herbal blends.</p><a href="category.html?cat=Shampoo" class="pc-link">Shop Now →</a></div>
       </div>
-    </article>
+    </div>
   </div>
 </section>
 
-<!-- PROMISE -->
-<section class="prom" id="promise">
-  <div class="pvis rv">
-    <div class="pring"><span>ACM</span></div>
-    <p class="pvf">Formulation<br>meets craft</p>
-  </div>
-  <div class="pcopy">
-    <p class="pk rv">Your idea. Our expertise.</p>
-    <h2 class="rv d1">Precision in every<br><em>drop, dose &amp; detail.</em></h2>
-    <p class="rv d2">We bring formulation thinking, manufacturing discipline and commercial understanding together — so your finished range feels intentional from the inside out.</p>
-    <ul class="pl rv d3">
-      <li><span>01</span> Flexible custom formulations</li>
-      <li><span>02</span> Product and packaging guidance</li>
-      <li><span>03</span> Consistent manufacturing controls</li>
-      <li><span>04</span> Full-range private label capability</li>
-    </ul>
+<!-- WHY -->
+<section class="section why-section">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="sec-eyebrow" style="justify-content:center">Why ACM</div>
+      <h2 class="sec-title">Built on Quality<br>&amp; <em>Trust</em></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal d1"><div class="why-icon">🏭</div><h3>Modern Facility</h3><p>State-of-the-art manufacturing plant with automated filling, mixing and packaging lines.</p></div>
+      <div class="why-card reveal d2"><div class="why-icon">🔬</div><h3>R&amp;D Lab</h3><p>In-house research and development team constantly innovating superior formulations.</p></div>
+      <div class="why-card reveal d3"><div class="why-icon">✅</div><h3>Quality Assured</h3><p>Every batch tested for safety, efficacy and stability before leaving our facility.</p></div>
+      <div class="why-card reveal d4"><div class="why-icon">📦</div><h3>Private Label</h3><p>Full private label and custom branding services for your cosmetics brand.</p></div>
+    </div>
   </div>
 </section>
 
 <!-- PROCESS -->
-<section class="proc" id="process">
-  <div class="proch">
-    <div class="lbl lt rv">From concept to shelf</div>
-    <h2 class="rv d1">A clear path to your<br><em>next bestseller.</em></h2>
-  </div>
-  <div class="stp">
-    <article class="st rv"><span class="snum">01</span><h3>Discover</h3><p>We align your product idea, target customer and commercial goals into a clear brief.</p><span class="sarr">→</span></article>
-    <article class="st rv d1"><span class="snum">02</span><h3>Formulate</h3><p>Our team develops or adapts a formula built precisely around your brief and market.</p><span class="sarr">→</span></article>
-    <article class="st rv d2"><span class="snum">03</span><h3>Design</h3><p>Choose packaging, fragrance, texture and the details that make the range distinctly yours.</p><span class="sarr">→</span></article>
-    <article class="st rv d3"><span class="snum">04</span><h3>Manufacture</h3><p>Controlled production, filling and finishing for a polished, market-ready range.</p><span class="sarr">→</span></article>
+<section class="section" id="process">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="sec-eyebrow" style="justify-content:center">How We Work</div>
+      <h2 class="sec-title">Our <em>Process</em></h2>
+    </div>
+    <div class="process-grid">
+      <div class="proc-step reveal d1"><div class="proc-num">01</div><h3>Consultation</h3><p>We discuss your requirements, target market, budget and product specifications in detail.</p></div>
+      <div class="proc-step reveal d2"><div class="proc-num">02</div><h3>Formulation</h3><p>Our R&amp;D team develops and refines the perfect formula matching your specifications.</p></div>
+      <div class="proc-step reveal d3"><div class="proc-num">03</div><h3>Production</h3><p>Large-scale manufacturing with strict quality checks at every production stage.</p></div>
+      <div class="proc-step reveal d4"><div class="proc-num">04</div><h3>Delivery</h3><p>Packaged, labelled and delivered on time — ready for retail shelves immediately.</p></div>
+    </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="con" id="contact">
-  <div class="ceyb rv"><span>Ready when you are</span></div>
-  <h2 class="rv d1">Let's create something<br><em>worth remembering.</em></h2>
-  <p class="rv d2">Tell us what you want to launch. We'll help shape the next steps toward a range you'll be proud to put your name on.</p>
-  <div class="cact rv d3">
-    <a href="mailto:info@acmcosmetics.com" class="btnc mag">Email us ↗</a>
-    <a href="tel:+92335000000" class="btnc2">Call us →</a>
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="container reveal">
+    <h2>Ready to Build<br>Your Brand?</h2>
+    <p>Partner with ACM and bring your cosmetics vision to life with premium manufacturing.</p>
+    <div class="cta-btns">
+      <a href="mailto:info@acmasiacosmetics.com" class="btn-white">Get In Touch</a>
+      <a href="tel:+923001234567" class="btn-outline-w">Call Us Now</a>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="fi">
-    <div class="fbrand">
-      <a href="#top"><span class="fbm">A<span>C</span>M</span></a>
-      <p>Asia Cosmetics Manufacturing<br>Private Limited · Pakistan</p>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="fb-brand reveal">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px">
+          <div class="logo-badge">ACM</div>
+          <div class="logo-words"><span class="top">ACM Asia</span><span class="sub">Cosmetics &amp; Manufactures</span></div>
+        </div>
+        <p>Pakistan's trusted cosmetics manufacturing partner — delivering premium quality beauty products for over a decade.</p>
+        <div class="socials" style="margin-top:20px">
+          <a href="#">f</a><a href="#">in</a><a href="#">ig</a>
+        </div>
+      </div>
+      <div class="fc reveal d1">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="#">Blogs</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="fc reveal d2">
+        <h4>Collections</h4>
+        <ul>
+          <li><a href="category.html?cat=Creams">Creams</a></li>
+          <li><a href="category.html?cat=Serums">Serums</a></li>
+          <li><a href="category.html?cat=Face+Wash">Face Wash</a></li>
+          <li><a href="category.html?cat=Petroleum+Jelly">Petroleum Jelly</a></li>
+          <li><a href="category.html?cat=Lotions">Lotions</a></li>
+          <li><a href="category.html?cat=Shampoo">Shampoo</a></li>
+        </ul>
+      </div>
+      <div class="fc reveal d3">
+        <h4>Contact Info</h4>
+        <ul>
+          <li><a href="tel:+923001234567">+92 300 1234567</a></li>
+          <li><a href="mailto:info@acmasiacosmetics.com">info@acmasiacosmetics.com</a></li>
+          <li><a href="https://wa.me/923001234567" target="_blank">WhatsApp Order</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="fc2"><small>Explore</small><a href="#about">About us</a><a href="#collections">Collections</a><a href="#process">Private label</a></div>
-    <div class="fc2"><small>Products</small><a href="#collections">Skincare</a><a href="#collections">Haircare</a><a href="#collections">Personal care</a></div>
-    <div class="fc2"><small>Contact</small><a href="mailto:info@acmcosmetics.com">info@acmcosmetics.com</a><p>Pakistan</p></div>
-  </div>
-  <div class="fbot">
-    <p>© 2026 ACM Asia Cosmetics Manufacturing Pvt. Ltd. All rights reserved.</p>
-    <p>Private-label beauty manufacturing</p>
+    <div class="footer-btm">
+      <span>© 2024 ACM Asia Cosmetics &amp; Manufactures Pvt. Ltd. All rights reserved.</span>
+    </div>
   </div>
 </footer>
 
+<script src="products.js"></script>
 <script>
-// CANVAS
-(()=>{
-  const c=document.getElementById('hc'),ctx=c.getContext('2d');
-  let W,H,pts=[];
-  function resize(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight}
-  function init(){pts=[];for(let i=0;i<14;i++)pts.push({x:Math.random()*W,y:Math.random()*H,r:50+Math.random()*150,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,o:.03+Math.random()*.07})}
-  function draw(){ctx.clearRect(0,0,W,H);pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<-p.r)p.x=W+p.r;if(p.x>W+p.r)p.x=-p.r;if(p.y<-p.r)p.y=H+p.r;if(p.y>H+p.r)p.y=-p.r;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.strokeStyle=`rgba(255,255,255,${p.o})`;ctx.lineWidth=1;ctx.stroke()});requestAnimationFrame(draw)}
-  window.addEventListener('resize',()=>{resize();init()});resize();init();draw();
-})();
-
-// TICKER
-(()=>{
-  const items=['Vitamin C Cream','Hyaluronic Serum','Keratin Shampoo','Face Wash','Petroleum Jelly','Brightening Lotion','Niacinamide Serum','Anti-Aging Cream','Sulphate-Free','Alpha Arbutin','Cocoa Butter Lotion','Aloe Vera','Private Label','Custom Formula','ACM Manufacturing'];
-  const el=document.getElementById('tki');
-  const h=items.map(i=>`<span>${i}</span>`).join('');
-  el.innerHTML=h+h;
-})();
-
-// CURSOR
-(()=>{
-  const c=document.getElementById('cur'),r=document.getElementById('curR');
-  if(!c)return;
-  let mx=-200,my=-200,rx=-200,ry=-200;
-  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;c.style.left=mx+'px';c.style.top=my+'px'});
-  (function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;r.style.left=rx+'px';r.style.top=ry+'px';requestAnimationFrame(loop)})();
-  document.querySelectorAll('a,button,.cc').forEach(el=>{
-    el.addEventListener('mouseenter',()=>{c.classList.add('h');r.classList.add('h')});
-    el.addEventListener('mouseleave',()=>{c.classList.remove('h');r.classList.remove('h')});
-  });
-})();
-
-// REVEAL
-(()=>{
-  document.querySelectorAll('.hero .rv').forEach((el,i)=>setTimeout(()=>el.classList.add('on'),160+i*90));
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.1,rootMargin:'0px 0px -50px 0px'});
-  document.querySelectorAll('.rv:not(.hero .rv)').forEach(el=>io.observe(el));
-})();
-
-// MOBILE MENU
-(()=>{
-  const btn=document.getElementById('hmb'),nl=document.getElementById('nl');
-  btn.addEventListener('click',()=>{const o=btn.classList.toggle('o');nl.classList.toggle('o',o);btn.setAttribute('aria-expanded',o)});
-  nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{btn.classList.remove('o');nl.classList.remove('o');btn.setAttribute('aria-expanded',false)}));
-})();
-
-// MAGNETIC BUTTONS
-(()=>{
-  document.querySelectorAll('.mag').forEach(el=>{
-    el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();const dx=e.clientX-(r.left+r.width/2);const dy=e.clientY-(r.top+r.height/2);el.style.transform=`translate(${dx*.2}px,${dy*.25}px) translateY(-3px)`});
-    el.addEventListener('mouseleave',()=>el.style.transform='');
-  });
-})();
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+let cur = 0, tmr;
+function goTo(i) {
+  slides[cur].classList.remove('active'); dots[cur].classList.remove('active');
+  cur = (i + slides.length) % slides.length;
+  slides[cur].classList.add('active'); dots[cur].classList.add('active');
+}
+function startTmr() { clearInterval(tmr); tmr = setInterval(() => goTo(cur + 1), 5000); }
+document.getElementById('next').onclick = () => { goTo(cur + 1); startTmr(); };
+document.getElementById('prev').onclick = () => { goTo(cur - 1); startTmr(); };
+dots.forEach(d => d.onclick = () => { goTo(+d.dataset.i); startTmr(); });
+let ts = 0;
+document.querySelector('.hero').addEventListener('touchstart', e => ts = e.touches[0].clientX);
+document.querySelector('.hero').addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - ts; if (Math.abs(dx) > 50) { goTo(dx < 0 ? cur + 1 : cur - 1); startTmr(); } });
+startTmr();
+document.getElementById('hbg').onclick = () => document.getElementById('navLinks').classList.toggle('open');
+const ro = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } }); }, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 </script>
+</body>
+</html>
