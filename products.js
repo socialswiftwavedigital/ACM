@@ -14,6 +14,7 @@ const PRODUCTS = [
   {id:'serum-5',name:'Vitamin C Serum',cat:'Serums',price:1500,desc:'Brightens skin & boosts radiance'},
   {id:'serum-6',name:'Vitamin B-5 Serum',cat:'Serums',price:1450,desc:'Deep moisture & skin barrier repair'},
   {id:'serum-7',name:'Glutathione Serum',cat:'Serums',price:1900,desc:'Whitening & antioxidant protection'},
+  {id:'serum-8',name:'Niacinamide Serum',cat:'Serums',price:1400,desc:'Minimizes pores & controls oil'},
 
   {id:'fw-1',name:'Foaming Face Wash',cat:'Face Wash',price:550,desc:'Deep cleansing & refreshing'},
   {id:'fw-2',name:'Creamy Face Wash',cat:'Face Wash',price:600,desc:'Gentle nourishing cleanse'},
