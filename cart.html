@@ -125,7 +125,14 @@ footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28p
 .nav-socials { display:flex; align-items:center; gap:14px; }
 .nav-socials a { color:rgba(255,255,255,0.6); text-decoration:none; display:flex; align-items:center; transition:color 0.3s ease; }
 .nav-socials a:hover { color:var(--red); }
-.nav-socials svg { width:15px; height:15px; fill:currentColor; }</style>
+.nav-socials svg { width:15px; height:15px; fill:currentColor; }
+@media (max-width: 540px) {
+  .topbar { height: 30px; }
+  .topbar marquee { font-size: 9px !important; line-height: 30px !important; letter-spacing: 1.2px !important; }
+  nav { height: 60px !important; top: 30px !important; }
+  nav img[src='logo.png'] { height: 48px !important; }
+  .hero { margin-top: 90px !important; }
+}</style>
 </head>
 <body>
 
@@ -301,6 +308,9 @@ renderCart();
 </div>
 </body>
 </html>
+
+
+
 
 
 
