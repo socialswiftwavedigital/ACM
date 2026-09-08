@@ -317,7 +317,7 @@ footer { background: var(--blue); padding: 72px 48px 30px; }
   .nav-links { display: none; position: fixed; top: 116px; left: 0; right: 0; bottom: 0; background: var(--blue); flex-direction: column; align-items: center; justify-content: center; gap: 24px; z-index: 998; overflow-y: auto; }
   .nav-links.open { display: flex; }
   .hamburger { display: flex; }
-  .nav-socials { display: none; }
+  .nav-socials { display: none !important; }
   .hero { height: 380px; }
   .drop-menu{position:static;transform:none!important;opacity:1;visibility:visible;pointer-events:auto;box-shadow:none;border:none;background:rgba(255,255,255,0.05);border-radius:0;padding:0;margin-top:8px;margin-left:0}
   .drop-menu a{padding:8px 0 8px 16px;border-bottom:1px solid rgba(255,255,255,0.05);font-size:11px}
@@ -345,7 +345,8 @@ footer { background: var(--blue); padding: 72px 48px 30px; }
   .topbar marquee { font-size: 9px !important; line-height: 30px !important; letter-spacing: 1.2px !important; }
   nav { height: 60px !important; top: 30px !important; }
   nav img[src='logo.png'] { height: 48px !important; }
-  .hero { margin-top: 90px !important; height: calc(100svh - 90px) !important; min-height: 300px; }
+  .hero { margin-top: 90px !important; height: 360px !important; }
+  .nav-socials { display: none !important; }
   .slide-cta-overlay { bottom: 24px; }
   .slide-btn { padding: 12px 28px; font-size: 11px; letter-spacing: 1.2px; }
   .arr { width: 36px; height: 36px; font-size: 14px; }
