@@ -31,10 +31,9 @@ const PRODUCTS = [
   {id:'fw-13',name:'Anti Acne Face Wash',cat:'Face Wash',price:620,desc:'Fights acne & prevents future breakouts'},
   {id:'fw-14',name:'Gold Face Wash',cat:'Face Wash',price:750,desc:'24K gold for luxury skin brightening'},
 
-  {id:'pj-1',name:'Original Petroleum Jelly',cat:'Petroleum Jelly',price:350,desc:'Classic skin protection'},
-  {id:'pj-2',name:'Scented Petroleum Jelly',cat:'Petroleum Jelly',price:400,desc:'Fragrant moisturizing jelly'},
-  {id:'pj-3',name:'Colored Petroleum Jelly',cat:'Petroleum Jelly',price:380,desc:'Tinted lip & skin care'},
-  {id:'pj-4',name:'Unscented Petroleum Jelly',cat:'Petroleum Jelly',price:360,desc:'Fragrance-free formula'},
+  {id:'pj-1',name:'Colored Petroleum Jelly',cat:'Petroleum Jelly',price:380,desc:'Tinted lip & skin care'},
+  {id:'pj-2',name:'Original Petroleum Jelly',cat:'Petroleum Jelly',price:350,desc:'Classic skin protection'},
+  {id:'pj-3',name:'Scented Petroleum Jelly',cat:'Petroleum Jelly',price:400,desc:'Fragrant moisturizing jelly'},
 
   {id:'lot-1',name:'Body Moisturizing Lotion',cat:'Lotions',price:700,desc:'All-day moisture for the body'},
   {id:'lot-2',name:'Whitening Body Lotion',cat:'Lotions',price:850,desc:'Visibly lightens skin tone'},
