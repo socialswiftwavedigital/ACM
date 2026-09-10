@@ -239,15 +239,17 @@ nav {
 .product-card { background: var(--white); border-radius: 12px; box-shadow: 0 4px 20px rgba(13,33,88,0.07); overflow: hidden; transition: all 0.4s ease; }
 .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 48px rgba(13,33,88,0.16); }
 
-.pc-head { height: 200px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-.pc-letters { font-size: 72px; font-weight: 900; color: rgba(255,255,255,0.2); letter-spacing: -3px; user-select: none; }
-.pc-badge { position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,0.2); color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.3); }
-.ph1 { background: linear-gradient(135deg, #0d2158, #1a3a8c); }
-.ph2 { background: linear-gradient(135deg, #dc2626, #ef4444); }
-.ph3 { background: linear-gradient(135deg, #1e4bb8, #3d6dd4); }
-.ph4 { background: linear-gradient(135deg, #b91c1c, #dc2626); }
-.ph5 { background: linear-gradient(135deg, #1a3a8c, #3d6dd4); }
-.ph6 { background: linear-gradient(135deg, #0d2158, #b91c1c); }
+.pc-head { height: 170px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background-size: cover; background-position: center; }
+.pc-head-overlay { position: absolute; inset: 0; background: rgba(13,33,88,0.18); }
+.pc-letters { display: none; }
+.pc-badge { position: absolute; top: 12px; right: 12px; background: rgba(13,33,88,0.7); color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.3); z-index: 1; }
+.ph1 { background-image: url('slide-creams.png'); }
+.ph2 { background-image: url('slide-serums.png'); }
+.ph3 { background-image: url('slide-facewash.png'); }
+.ph4 { background-image: url('slide-pjelly.png'); }
+.ph5 { background-image: url('slide-lotions.png'); }
+.ph6 { background-image: url('slide-shampoo.png'); }
+.ph7 { background: linear-gradient(135deg, #0d2158, #1a3a8c); }
 
 .pc-body { padding: 26px; }
 .pc-tag { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
@@ -536,31 +538,31 @@ footer { background: var(--blue); padding: 72px 48px 30px; }
     </div>
     <div class="products-grid">
       <div class="product-card reveal d1">
-        <div class="pc-head ph1"><div class="pc-letters">CR</div><div class="pc-badge">5 Variants</div></div>
+        <div class="pc-head ph1"><div class="pc-head-overlay"></div><div class="pc-badge">5 Variants</div></div>
         <div class="pc-body"><div class="pc-tag">Skincare</div><div class="pc-name">Creams</div><p class="pc-desc">Vitamin C, Anti Aging, Anti Acne, Anti Freckles & Vitamin B-3 — complete facial cream range.</p><a href="category.html?cat=Creams" class="pc-link">Shop Now →</a></div>
       </div>
       <div class="product-card reveal d2">
-        <div class="pc-head ph2"><div class="pc-letters">SR</div><div class="pc-badge">8 Variants</div></div>
+        <div class="pc-head ph2"><div class="pc-head-overlay"></div><div class="pc-badge">8 Variants</div></div>
         <div class="pc-body"><div class="pc-tag">Treatment</div><div class="pc-name">Serums</div><p class="pc-desc">Hyaluronic Acid, Salicylic Acid, Niacinamide, Glutathione & more — high-performance treatments.</p><a href="category.html?cat=Serums" class="pc-link">Shop Now →</a></div>
       </div>
       <div class="product-card reveal d3">
-        <div class="pc-head ph3"><div class="pc-letters">FW</div><div class="pc-badge">14 Variants</div></div>
+        <div class="pc-head ph3"><div class="pc-head-overlay"></div><div class="pc-badge">14 Variants</div></div>
         <div class="pc-body"><div class="pc-tag">Cleansing</div><div class="pc-name">Face Wash</div><p class="pc-desc">Foaming, Gel, Charcoal, Gold, Turmeric, Rice, Vitamin C & more — for every skin type.</p><a href="category.html?cat=Face+Wash" class="pc-link">Shop Now →</a></div>
       </div>
       <div class="product-card reveal d1">
-        <div class="pc-head ph4"><div class="pc-letters">PJ</div><div class="pc-badge">3 Variants</div></div>
+        <div class="pc-head ph4"><div class="pc-head-overlay"></div><div class="pc-badge">3 Variants</div></div>
         <div class="pc-body"><div class="pc-tag">Protection</div><div class="pc-name">Petroleum Jelly</div><p class="pc-desc">Colored, Original & Scented — pharmaceutical grade petroleum jelly for skin & lip care.</p><a href="category.html?cat=Petroleum+Jelly" class="pc-link">Shop Now →</a></div>
       </div>
       <div class="product-card reveal d2">
-        <div class="pc-head ph5"><div class="pc-letters">LT</div><div class="pc-badge">10 Variants</div></div>
+        <div class="pc-head ph5"><div class="pc-head-overlay"></div><div class="pc-badge">10 Variants</div></div>
         <div class="pc-body"><div class="pc-tag">Moisturising</div><div class="pc-name">Lotions</div><p class="pc-desc">Brightening, Niacinamide, Vitamin C, Honey, Cocoa Butter, Aloe Vera & more body lotions.</p><a href="category.html?cat=Lotions" class="pc-link">Shop Now →</a></div>
       </div>
       <div class="product-card reveal d3">
-        <div class="pc-head ph6"><div class="pc-letters">SH</div><div class="pc-badge">11 Variants</div></div>
+        <div class="pc-head ph6"><div class="pc-head-overlay"></div><div class="pc-badge">11 Variants</div></div>
         <div class="pc-body"><div class="pc-tag">Hair Care</div><div class="pc-name">Shampoo</div><p class="pc-desc">Keratin, Anti-Dandruff, Onion, Egg, Rice, Coconut, Herbal & Men's — complete hair care range.</p><a href="category.html?cat=Shampoo" class="pc-link">Shop Now →</a></div>
       </div>
       <div class="product-card reveal d1">
-        <div class="pc-head ph1"><div class="pc-letters">BK</div><div class="pc-badge">8 Variants</div></div>
+        <div class="pc-head ph7"><div class="pc-head-overlay"></div><div class="pc-badge">8 Variants</div></div>
         <div class="pc-body"><div class="pc-tag">Baby Care</div><div class="pc-name">Baby &amp; Kids</div><p class="pc-desc">Baby Lotion, Cream, Shampoo, Face Wash, Body Wash, Oil & more — gentle care for little ones.</p><a href="category.html?cat=Baby+%26+Kids" class="pc-link">Shop Now →</a></div>
       </div>
     </div>
