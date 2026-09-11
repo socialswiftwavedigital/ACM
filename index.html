@@ -171,20 +171,6 @@ nav {
 }
 .dot.active { background: var(--red); width: 40px; }
 
-.slider-arrows {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  width: 100%; display: flex; justify-content: space-between;
-  padding: 0 18px; z-index: 10; pointer-events: none;
-}
-.arr {
-  pointer-events: all; cursor: pointer;
-  width: 50px; height: 50px; background: var(--white);
-  border: 2px solid var(--border); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 18px; color: var(--blue);
-  transition: all var(--trans); box-shadow: 0 4px 14px rgba(13,33,88,0.1);
-}
-.arr:hover { background: var(--blue); color: var(--white); border-color: var(--blue); }
 
 
 /* ─── TICKER ─────────────────────────────────────────── */
@@ -263,10 +249,11 @@ nav {
 .why-section .sec-title { color: var(--white); }
 .why-section .sec-eyebrow { color: var(--red); }
 .why-section .sec-eyebrow::before { background: var(--red); }
-.why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; margin-top: 56px; }
-.why-card { text-align: center; }
-.why-icon { width: 74px; height: 74px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 20px; background: rgba(255,255,255,0.06); transition: all var(--trans); }
-.why-card:hover .why-icon { background: var(--red); border-color: var(--red); }
+.why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; margin-top: 56px; align-items: start; }
+.why-card { text-align: center; display: flex; flex-direction: column; align-items: center; }
+.why-icon { width: 74px; height: 74px; border-radius: 50%; border: 2px solid var(--red); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; background: var(--red); transition: all var(--trans); flex-shrink: 0; }
+.why-icon svg { width: 30px; height: 30px; fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.why-card:hover .why-icon { background: transparent; }
 .why-card h3 { font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--white); margin-bottom: 10px; }
 .why-card p { font-size: 13.5px; color: rgba(255,255,255,0.5); line-height: 1.8; }
 
@@ -322,20 +309,34 @@ footer { background: var(--blue); padding: 72px 48px 30px; }
 .drop-menu::before{content:'';position:absolute;top:-18px;left:0;right:0;height:18px}
 
 /* ─── RESPONSIVE ─────────────────────────────────────── */
+/* mobile menu footer — hidden on desktop */
+.mobile-menu-footer { display: none !important; }
+.nav-wa { display: flex; }
+
 @media (max-width: 900px) {
   nav { padding: 0 20px; }
-  .nav-links { display: none; position: fixed; top: 116px; left: 0; right: 0; bottom: 0; background: var(--blue); flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 24px; gap: 0; z-index: 998; overflow-y: auto; }
+  .nav-links { display: none; position: fixed; top: 116px; left: 0; right: 0; bottom: 0; background: var(--blue); flex-direction: column; align-items: flex-start; justify-content: flex-start; padding-top: 8px; gap: 0; z-index: 998; overflow-y: auto; }
   .nav-links.open { display: flex; }
-  .nav-links > li { width: 100%; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.07); }
-  .nav-links > li > a { display: block; padding: 16px 20px; font-size: 13px; }
+  .nav-links > li { width: 100%; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .nav-links > li > a { display: block; padding: 16px 24px; font-size: 13px; }
   .hamburger { display: flex; }
   .nav-socials { display: none !important; }
+  .nav-wa { display: none; }
   .hero { height: 380px; }
   .drop-menu { position: static; transform: none !important; opacity: 0; visibility: hidden; pointer-events: none; max-height: 0; overflow: hidden; box-shadow: none; border: none; background: rgba(255,255,255,0.05); border-radius: 0; padding: 0; margin: 0; transition: max-height 0.3s ease, opacity 0.3s ease; }
   .nav-dropdown.mobile-open .drop-menu { opacity: 1; visibility: visible; pointer-events: auto; max-height: 400px; }
-  .drop-menu a { padding: 12px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 12px; display: block; text-align: center; }
+  .drop-menu a { padding: 12px 24px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 12px; display: block; text-align: left; }
   .drop-caret { display: inline-block !important; margin-left: 6px; }
   .nav-dropdown.mobile-open .drop-caret { transform: rotate(180deg); }
+  /* mobile menu footer */
+  .mobile-menu-footer { display: block !important; border-top: 1px solid rgba(255,255,255,0.12); padding: 24px; border-bottom: none; margin-top: 8px; }
+  .mmf-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
+  .mmf-link { display: block; color: rgba(255,255,255,0.75); text-decoration: none; font-size: 13px; margin-bottom: 6px; }
+  .mmf-link:hover { color: var(--red); }
+  .mmf-socials { display: flex; gap: 12px; margin-top: 16px; }
+  .mmf-socials a { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); text-decoration: none; transition: all 0.3s ease; }
+  .mmf-socials a:hover { background: var(--red); border-color: var(--red); color: #fff; }
+  .mmf-socials svg { width: 15px; height: 15px; fill: currentColor; }
   .slide-inner { grid-template-columns: 1fr; padding: 0 28px; }
   .slide-visual { display: none; }
   .slide-title { font-size: 50px; }
@@ -388,18 +389,24 @@ footer { background: var(--blue); padding: 72px 48px 30px; }
     
   </a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html" class="active">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li class="nav-dropdown"><a href="collections.html">Products<svg class="drop-caret" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a><div class="drop-menu"><a href="category.html?cat=Creams">Creams</a><a href="category.html?cat=Serums">Serums</a><a href="category.html?cat=Face+Wash">Face Wash</a><a href="category.html?cat=Petroleum+Jelly">Petroleum Jelly</a><a href="category.html?cat=Lotions">Lotions</a><a href="category.html?cat=Shampoo">Shampoo</a><a href="category.html?cat=Baby+%26+Kids">Baby &amp; Kids</a></div></li>
-    <li><a href="index.html#process">Process</a></li>
+    <li><a href="faqs.html">FAQs</a></li>
     <li><a href="contact.html">Contact</a></li>
+    <li class="mobile-menu-footer">
+      <p class="mmf-label">Contact Us</p>
+      <a href="tel:+923255129241" class="mmf-link">+92 325 5129241</a>
+      <a href="mailto:info@acmasiacosmetics.com" class="mmf-link">info@acmasiacosmetics.com</a>
+      <div class="mmf-socials">
+        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+        <a href="https://wa.me/923255129241" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
+        <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5a2.89 2.89 0 0 1-2.89-2.89a2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05a6.34 6.34 0 0 0-6.34 6.34a6.34 6.34 0 0 0 6.34 6.34a6.34 6.34 0 0 0 6.33-6.34V8.69a8.22 8.22 0 0 0 4.82 1.56V6.79a4.85 4.85 0 0 1-1.05-.1z"/></svg></a>
+      </div>
+    </li>
   </ul>
-  <div class="nav-socials">
-    <a href="https://facebook.com" aria-label="Facebook" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-    <a href="https://instagram.com" aria-label="Instagram" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
-    <a href="https://wa.me/923255129241" aria-label="WhatsApp" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
-    <a href="https://tiktok.com" aria-label="TikTok" target="_blank"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5a2.89 2.89 0 0 1-2.89-2.89a2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05a6.34 6.34 0 0 0-6.34 6.34a6.34 6.34 0 0 0 6.34 6.34a6.34 6.34 0 0 0 6.33-6.34V8.69a8.22 8.22 0 0 0 4.82 1.56V6.79a4.85 4.85 0 0 1-1.05-.1z"/></svg></a>
-  </div>
+  <a href="https://wa.me/923255129241" class="nav-wa" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg> WhatsApp</a>
   <button class="hamburger" id="hbg" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -474,10 +481,6 @@ footer { background: var(--blue); padding: 72px 48px 30px; }
     </div>
   </div>
 
-  <div class="slider-arrows">
-    <div class="arr" id="prev">&#8592;</div>
-    <div class="arr" id="next">&#8594;</div>
-  </div>
   <div class="slider-dots" id="dots">
     <div class="dot active" data-i="0"></div>
     <div class="dot" data-i="1"></div>
@@ -583,10 +586,10 @@ footer { background: var(--blue); padding: 72px 48px 30px; }
       <h2 class="sec-title">Built on Quality<br>&amp; <em>Trust</em></h2>
     </div>
     <div class="why-grid">
-      <div class="why-card reveal d1"><div class="why-icon">🏭</div><h3>Modern Facility</h3><p>State-of-the-art manufacturing plant with automated filling, mixing and packaging lines.</p></div>
-      <div class="why-card reveal d2"><div class="why-icon">🔬</div><h3>R&amp;D Lab</h3><p>In-house research and development team constantly innovating superior formulations.</p></div>
-      <div class="why-card reveal d3"><div class="why-icon">✅</div><h3>Quality Assured</h3><p>Every batch tested for safety, efficacy and stability before leaving our facility.</p></div>
-      <div class="why-card reveal d4"><div class="why-icon">📦</div><h3>Private Label</h3><p>Full private label and custom branding services for your cosmetics brand.</p></div>
+      <div class="why-card reveal d1"><div class="why-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div><h3>Modern Facility</h3><p>State-of-the-art manufacturing plant with automated filling, mixing and packaging lines.</p></div>
+      <div class="why-card reveal d2"><div class="why-icon"><svg viewBox="0 0 24 24"><path d="M9 3h6M8.5 3v6L4 17a2 2 0 0 0 1.8 2.9h12.4A2 2 0 0 0 20 17l-4.5-8V3"/><line x1="6" y1="14" x2="18" y2="14"/></svg></div><h3>R&amp;D Lab</h3><p>In-house research and development team constantly innovating superior formulations.</p></div>
+      <div class="why-card reveal d3"><div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div><h3>Quality Assured</h3><p>Every batch tested for safety, efficacy and stability before leaving our facility.</p></div>
+      <div class="why-card reveal d4"><div class="why-icon"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.5" fill="#fff" stroke="none"/></svg></div><h3>Private Label</h3><p>Full private label and custom branding services for your cosmetics brand.</p></div>
     </div>
   </div>
 </section>
@@ -684,8 +687,6 @@ function goTo(i) {
   slides[cur].classList.add('active'); dots[cur].classList.add('active');
 }
 function startTmr() { clearInterval(tmr); tmr = setInterval(() => goTo(cur + 1), 5000); }
-document.getElementById('next').onclick = () => { goTo(cur + 1); startTmr(); };
-document.getElementById('prev').onclick = () => { goTo(cur - 1); startTmr(); };
 dots.forEach(d => d.onclick = () => { goTo(+d.dataset.i); startTmr(); });
 let ts = 0;
 document.querySelector('.hero').addEventListener('touchstart', e => ts = e.touches[0].clientX);

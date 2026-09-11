@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQs — ACM Asia Cosmetics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#0D2158;--blue2:#1A3A8C;--red:#DC2626;--red2:#B91C1C;--white:#FFFFFF;--offwhite:#F4F7FF;--gray:#F0F4FF;--text:#0D2158;--muted:#5A6A8A;--border:#D6E0F5;--trans:0.3s ease}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden}
+
+/* TOPBAR */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:1001;background:rgba(6,18,56,0.98);border-bottom:1px solid rgba(255,255,255,0.08);height:36px;overflow:hidden;white-space:nowrap}
+
+/* NAV */
+nav{position:fixed;top:36px;left:0;right:0;z-index:1000;background:var(--blue);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:80px;border-bottom:3px solid var(--red);box-shadow:0 4px 24px rgba(13,33,88,0.35)}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:12.5px;font-weight:500;letter-spacing:0.3px;text-transform:uppercase;transition:color var(--trans);position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--red);transform:scaleX(0);transition:transform var(--trans);transform-origin:left}
+.nav-links a:hover{color:var(--white)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.nav-links a.active{color:var(--white)}
+.nav-dropdown{position:relative}
+.nav-dropdown>a{display:flex;align-items:center;gap:5px}
+.nav-dropdown>a::after{display:none!important}
+.drop-caret{width:10px;height:10px;flex-shrink:0;transition:transform 0.3s ease;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.nav-dropdown:hover .drop-caret{transform:rotate(180deg)}
+.drop-menu{position:absolute;top:calc(100% + 18px);left:50%;transform:translateX(-50%) translateY(8px);background:#0D2158;min-width:190px;border-radius:10px;box-shadow:0 16px 40px rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.12);padding:8px 0;opacity:0;visibility:hidden;pointer-events:none;transition:all 0.2s ease;z-index:999}
+.nav-dropdown:hover .drop-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.drop-menu a{display:block;padding:10px 20px;color:rgba(255,255,255,0.72);font-size:11.5px;font-weight:500;text-decoration:none;transition:all 0.2s ease;white-space:nowrap}
+.drop-menu a:hover{color:#fff;background:rgba(255,255,255,0.08);padding-left:26px}
+.drop-menu a::after{display:none!important}
+.drop-menu::before{content:'';position:absolute;top:-18px;left:0;right:0;height:18px}
+.nav-wa{display:flex;align-items:center;gap:8px;background:#25D366;color:#fff;text-decoration:none;padding:9px 16px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:0.5px;transition:background 0.3s ease}
+.nav-wa:hover{background:#128C7E}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);transition:all 0.3s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* PAGE HERO */
+.page-hero{margin-top:116px;background:var(--blue);padding:80px 48px 70px;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;right:-80px;top:-80px;width:400px;height:400px;background:var(--red);opacity:0.07;border-radius:50%}
+.container{max-width:900px;margin:0 auto;position:relative;z-index:1}
+.ph-eye{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.ph-eye::before{content:'';width:24px;height:2px;background:var(--red);display:block}
+.ph-title{font-size:clamp(36px,5vw,64px);font-weight:900;color:var(--white);text-transform:uppercase;line-height:1.05;letter-spacing:-0.5px}
+.ph-title em{font-style:normal;color:var(--red)}
+.ph-sub{color:rgba(255,255,255,0.6);font-size:15px;margin-top:14px;max-width:520px}
+
+/* FAQ SECTION */
+.faq-section{padding:90px 48px}
+.faq-cat-title{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:20px;margin-top:48px;display:flex;align-items:center;gap:10px}
+.faq-cat-title::before{content:'';width:24px;height:2px;background:var(--red);display:block}
+.faq-cat-title:first-child{margin-top:0}
+.faq-item{border:2px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden;transition:border-color var(--trans)}
+.faq-item.open{border-color:var(--blue)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;cursor:pointer;gap:16px;user-select:none}
+.faq-q h3{font-size:15px;font-weight:700;color:var(--blue);line-height:1.4}
+.faq-icon{width:28px;height:28px;border-radius:50%;background:var(--gray);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all var(--trans)}
+.faq-icon svg{width:14px;height:14px;fill:none;stroke:var(--blue);stroke-width:2.5;stroke-linecap:round;transition:transform 0.3s ease}
+.faq-item.open .faq-icon{background:var(--red)}
+.faq-item.open .faq-icon svg{stroke:#fff;transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.3s ease}
+.faq-item.open .faq-a{max-height:400px}
+.faq-a p{padding:0 24px 20px;font-size:14px;color:var(--muted);line-height:1.8}
+
+/* CTA */
+.faq-cta{background:var(--blue);border-radius:16px;padding:48px;text-align:center;margin-top:56px}
+.faq-cta h3{font-size:clamp(22px,3vw,32px);font-weight:900;color:var(--white);text-transform:uppercase;margin-bottom:10px}
+.faq-cta p{font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:28px}
+.faq-cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-red{display:inline-block;background:var(--red);color:#fff;padding:14px 32px;border-radius:8px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:all var(--trans)}
+.btn-red:hover{background:var(--red2);transform:translateY(-2px)}
+.btn-outline{display:inline-block;background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.3);padding:12px 32px;border-radius:8px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:all var(--trans)}
+.btn-outline:hover{border-color:#fff}
+
+/* FOOTER */
+footer{background:var(--blue);padding:60px 48px 28px}
+.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.fb-brand p{font-size:13px;line-height:1.8;margin-top:12px;color:rgba(255,255,255,0.45);max-width:280px}
+.fc h4{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--white);margin-bottom:18px}
+.fc ul{list-style:none}
+.fc li{margin-bottom:10px}
+.fc a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:13px;transition:color var(--trans)}
+.fc a:hover{color:var(--red)}
+.socials{display:flex;gap:12px;margin-top:20px}
+.socials a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);text-decoration:none;transition:all var(--trans)}
+.socials a:hover{border-color:var(--red);background:var(--red);color:#fff}
+.socials svg{width:16px;height:16px;fill:currentColor}
+.footer-btm{max-width:1200px;margin:0 auto;border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;font-size:12px;color:rgba(255,255,255,0.3)}
+
+/* mobile */
+.mobile-menu-footer{display:none!important}
+@media(max-width:900px){
+  nav{padding:0 20px}
+  .nav-links{display:none;position:fixed;top:116px;left:0;right:0;bottom:0;background:var(--blue);flex-direction:column;align-items:flex-start;padding-top:8px;gap:0;z-index:998;overflow-y:auto}
+  .nav-links.open{display:flex}
+  .nav-links>li{width:100%;text-align:left;border-bottom:1px solid rgba(255,255,255,0.07)}
+  .nav-links>li>a{display:block;padding:16px 24px;font-size:13px}
+  .hamburger{display:flex}
+  .nav-wa{display:none}
+  .drop-menu{position:static;transform:none!important;opacity:0;visibility:hidden;pointer-events:none;max-height:0;overflow:hidden;box-shadow:none;border:none;background:rgba(255,255,255,0.05);border-radius:0;padding:0;margin:0;transition:max-height 0.3s ease,opacity 0.3s ease}
+  .nav-dropdown.mobile-open .drop-menu{opacity:1;visibility:visible;pointer-events:auto;max-height:400px}
+  .drop-menu a{padding:12px 24px;border-bottom:1px solid rgba(255,255,255,0.05);font-size:12px;display:block;text-align:left}
+  .drop-caret{display:inline-block!important;margin-left:6px}
+  .nav-dropdown.mobile-open .drop-caret{transform:rotate(180deg)}
+  .mobile-menu-footer{display:block!important;border-top:1px solid rgba(255,255,255,0.12);padding:24px;border-bottom:none;margin-top:8px}
+  .mmf-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:12px}
+  .mmf-link{display:block;color:rgba(255,255,255,0.75);text-decoration:none;font-size:13px;margin-bottom:6px}
+  .mmf-socials{display:flex;gap:12px;margin-top:16px}
+  .mmf-socials a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);text-decoration:none;transition:all 0.3s ease}
+  .mmf-socials a:hover{background:#DC2626;border-color:#DC2626;color:#fff}
+  .mmf-socials svg{width:15px;height:15px;fill:currentColor}
+  .page-hero,.faq-section{padding-left:20px;padding-right:20px}
+  .footer-grid{grid-template-columns:1fr;gap:32px}
+  .faq-cta{padding:32px 20px}
+  .faq-cta-btns{flex-direction:column;align-items:center}
+}
+@media(max-width:540px){
+  .topbar{height:30px}
+  .topbar marquee{font-size:9px!important;line-height:30px!important;letter-spacing:1.2px!important}
+  nav{height:60px!important;top:30px!important}
+  nav img[src='logo.png']{height:48px!important}
+  .page-hero{margin-top:90px!important;padding:50px 20px 40px!important}
+  .nav-links{top:90px!important}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <marquee scrollamount="4" style="line-height:36px;font-size:10.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.85);">
+    &nbsp;&nbsp;&nbsp;Pakistan's Premier Cosmetics Manufacturer&nbsp;<span style="color:#DC2626">&#9670;</span>&nbsp;Premium Private Label Solutions&nbsp;<span style="color:#DC2626">&#9670;</span>&nbsp;OEM Manufacturing&nbsp;<span style="color:#DC2626">&#9670;</span>&nbsp;7 Categories&nbsp;<span style="color:#DC2626">&#9670;</span>&nbsp;40+ Products&nbsp;<span style="color:#DC2626">&#9670;</span>&nbsp;ISO Quality Certified&nbsp;<span style="color:#DC2626">&#9670;</span>&nbsp;Trusted Beauty Partner&nbsp;<span style="color:#DC2626">&#9670;</span>&nbsp;Contact: +92 325 5129241&nbsp;<span style="color:#DC2626">&#9670;</span>&nbsp;&nbsp;&nbsp;
+  </marquee>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.png" alt="ACM Logo" style="height:70px;width:auto;border-radius:6px;">
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="nav-dropdown"><a href="collections.html">Products<svg class="drop-caret" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a><div class="drop-menu"><a href="category.html?cat=Creams">Creams</a><a href="category.html?cat=Serums">Serums</a><a href="category.html?cat=Face+Wash">Face Wash</a><a href="category.html?cat=Petroleum+Jelly">Petroleum Jelly</a><a href="category.html?cat=Lotions">Lotions</a><a href="category.html?cat=Shampoo">Shampoo</a><a href="category.html?cat=Baby+%26+Kids">Baby &amp; Kids</a></div></li>
+    <li><a href="faqs.html" class="active">FAQs</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li class="mobile-menu-footer">
+      <p class="mmf-label">Contact Us</p>
+      <a href="tel:+923255129241" class="mmf-link">+92 325 5129241</a>
+      <a href="mailto:info@acmasiacosmetics.com" class="mmf-link">info@acmasiacosmetics.com</a>
+      <div class="mmf-socials">
+        <a href="https://facebook.com" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://instagram.com" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+        <a href="https://wa.me/923255129241" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
+        <a href="https://tiktok.com" target="_blank"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5a2.89 2.89 0 0 1-2.89-2.89a2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05a6.34 6.34 0 0 0-6.34 6.34a6.34 6.34 0 0 0 6.34 6.34a6.34 6.34 0 0 0 6.33-6.34V8.69a8.22 8.22 0 0 0 4.82 1.56V6.79a4.85 4.85 0 0 1-1.05-.1z"/></svg></a>
+      </div>
+    </li>
+  </ul>
+  <a href="https://wa.me/923255129241" class="nav-wa" target="_blank"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg> WhatsApp</a>
+  <button class="hamburger" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container" style="max-width:1200px">
+    <div class="ph-eye">Help Center</div>
+    <h1 class="ph-title">Frequently Asked <em>Questions</em></h1>
+    <p class="ph-sub">Everything you need to know about ACM's manufacturing, products, and ordering process.</p>
+  </div>
+</div>
+
+<!-- FAQ SECTION -->
+<section class="faq-section">
+  <div class="container">
+
+    <div class="faq-cat-title">General Questions</div>
+
+    <div class="faq-item">
+      <div class="faq-q"><h3>What does ACM Asia Cosmetics manufacture?</h3><div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a"><p>ACM Asia Cosmetics & Manufactures produces a full range of beauty and personal care products including Creams, Serums, Face Wash, Petroleum Jelly, Body Lotions, Shampoo, and Baby & Kids products. We offer 40+ products across 7 categories.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><h3>Is ACM a registered and certified company?</h3><div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a"><p>Yes, ACM Asia Cosmetics & Manufactures Pvt. Ltd. is a fully registered company operating in Pakistan with ISO quality certifications. All our products are manufactured under strict quality control standards.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><h3>Where is ACM located?</h3><div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a"><p>ACM Asia Cosmetics is based in Pakistan. You can reach us via WhatsApp at +92 325 5129241 or email us at info@acmasiacosmetics.com for the exact address and directions to our facility.</p></div>
+    </div>
+
+    <div class="faq-cat-title">Orders & Minimum Quantity</div>
+
+    <div class="faq-item">
+      <div class="faq-q"><h3>What is the Minimum Order Quantity (MOQ)?</h3><div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a"><p>Our standard Minimum Order Quantity (MOQ) is 100 pieces per product. For custom formulations or private label orders, MOQ may vary. Please contact us to discuss your specific requirements.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><h3>Can I order a sample before placing a bulk order?</h3><div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a"><p>Yes, we provide product samples for evaluation before bulk orders. Sample availability and charges vary by product. Contact us on WhatsApp or email to request samples.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><h3>How do I place an order?</h3><div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a"><p>You can place an order by contacting us via WhatsApp at +92 325 5129241, emailing info@acmasiacosmetics.com, or filling out the contact form on our website. Our team will guide you through the ordering process, pricing, and delivery timeline.</p></div>
+    </div>
+
+    <div class="faq-cat-title">Private Label & Custom Manufacturing</div>
+
+    <div class="faq-item">
+      <div class="faq-q"><h3>Do you offer private label services?</h3><div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a"><p>Yes! We offer full private label manufacturing services. You can have our products manufactured under your own brand name with custom packaging, labeling, and branding. This is ideal for businesses wanting to launch their own cosmetics line.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><h3>Can you create a custom formula for my brand?</h3><div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a"><p>Absolutely. Our in-house R&D lab specializes in developing custom formulations tailored to your specifications — including specific ingredients, fragrance, texture, and packaging requirements. Contact us to start a consultation.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><h3>Can you provide custom packaging and labeling?</h3><div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a"><p>Yes, we handle complete packaging and labeling as part of our private label service. We work with your design files or can help develop packaging solutions that match your brand identity.</p></div>
+    </div>
+
+    <div class="faq-cat-title">Quality & Safety</div>
+
+    <div class="faq-item">
+      <div class="faq-q"><h3>How do you ensure product quality?</h3><div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a"><p>Every batch goes through rigorous quality control testing for safety, efficacy, and stability before it leaves our facility. We follow strict GMP (Good Manufacturing Practices) guidelines throughout our production process.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><h3>Are your products dermatologically tested?</h3><div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a"><p>Our products are formulated with dermatologically safe ingredients. We test each product for safety and stability. For specific dermatological certifications on a product, please contact us for details.</p></div>
+    </div>
+
+    <div class="faq-cat-title">Delivery & Payment</div>
+
+    <div class="faq-item">
+      <div class="faq-q"><h3>What is the delivery lead time?</h3><div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a"><p>Standard orders are typically ready within 7–14 working days. Custom formulation or private label orders may take 3–4 weeks depending on complexity. We will confirm the exact timeline when you place your order.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><h3>Do you deliver across Pakistan?</h3><div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a"><p>Yes, we deliver to all major cities across Pakistan including Karachi, Lahore, Islamabad, Rawalpindi, Faisalabad, Multan, and more. International shipping is also available — contact us for details.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><h3>What payment methods do you accept?</h3><div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a"><p>We accept bank transfer (IBFT), cash on delivery for select areas, and other payment arrangements based on order size. Payment terms are discussed and agreed upon when finalizing your order.</p></div>
+    </div>
+
+    <!-- CTA -->
+    <div class="faq-cta">
+      <h3>Still Have Questions?</h3>
+      <p>Our team is ready to help you. Reach out and we'll respond within 24 hours.</p>
+      <div class="faq-cta-btns">
+        <a href="https://wa.me/923255129241" target="_blank" class="btn-red">Chat on WhatsApp</a>
+        <a href="contact.html" class="btn-outline">Send Us a Message</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="fb-brand">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px">
+        <img src="logo.png" alt="ACM Logo" style="height:70px;width:auto;border-radius:6px;">
+      </div>
+      <p>Pakistan's trusted cosmetics manufacturing partner — delivering premium quality beauty products for over a decade.</p>
+      <div class="socials">
+        <a href="https://facebook.com" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://instagram.com" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+        <a href="https://wa.me/923255129241" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
+        <a href="https://tiktok.com" target="_blank"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5a2.89 2.89 0 0 1-2.89-2.89a2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05a6.34 6.34 0 0 0-6.34 6.34a6.34 6.34 0 0 0 6.34 6.34a6.34 6.34 0 0 0 6.33-6.34V8.69a8.22 8.22 0 0 0 4.82 1.56V6.79a4.85 4.85 0 0 1-1.05-.1z"/></svg></a>
+      </div>
+    </div>
+    <div class="fc"><h4>Quick Links</h4><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="faqs.html">FAQs</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul></div>
+    <div class="fc"><h4>Collections</h4><ul>
+      <li><a href="category.html?cat=Creams">Creams</a></li>
+      <li><a href="category.html?cat=Serums">Serums</a></li>
+      <li><a href="category.html?cat=Face+Wash">Face Wash</a></li>
+      <li><a href="category.html?cat=Petroleum+Jelly">Petroleum Jelly</a></li>
+      <li><a href="category.html?cat=Lotions">Lotions</a></li>
+      <li><a href="category.html?cat=Shampoo">Shampoo</a></li>
+    </ul></div>
+    <div class="fc"><h4>Contact Info</h4><ul>
+      <li><a href="tel:+923255129241">+92 325 5129241</a></li>
+      <li><a href="mailto:info@acmasiacosmetics.com">info@acmasiacosmetics.com</a></li>
+      <li><a href="https://wa.me/923255129241" target="_blank">WhatsApp Order</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-btm">
+    <span>&#169; 2026 ACM Asia Cosmetics &amp; Manufactures Pvt. Ltd. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('hbg').addEventListener('click',function(){
+  var nav=document.getElementById('navLinks');
+  nav.classList.toggle('open');
+  this.classList.toggle('open');
+});
+document.querySelectorAll('.nav-dropdown > a').forEach(function(link){
+  link.addEventListener('click',function(e){
+    if(window.innerWidth<=900){e.preventDefault();this.parentElement.classList.toggle('mobile-open');}
+  });
+});
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var item=this.parentElement;
+    var isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open')});
+    if(!isOpen)item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
