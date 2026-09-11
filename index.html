@@ -323,14 +323,18 @@ footer { background: var(--blue); padding: 72px 48px 30px; }
 /* ─── RESPONSIVE ─────────────────────────────────────── */
 @media (max-width: 900px) {
   nav { padding: 0 20px; }
-  .nav-links { display: none; position: fixed; top: 116px; left: 0; right: 0; bottom: 0; background: var(--blue); flex-direction: column; align-items: center; justify-content: center; gap: 24px; z-index: 998; overflow-y: auto; }
+  .nav-links { display: none; position: fixed; top: 116px; left: 0; right: 0; bottom: 0; background: var(--blue); flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 24px; gap: 0; z-index: 998; overflow-y: auto; }
   .nav-links.open { display: flex; }
+  .nav-links > li { width: 100%; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .nav-links > li > a { display: block; padding: 16px 20px; font-size: 13px; }
   .hamburger { display: flex; }
   .nav-socials { display: none !important; }
   .hero { height: 380px; }
-  .drop-menu{position:static;transform:none!important;opacity:1;visibility:visible;pointer-events:auto;box-shadow:none;border:none;background:rgba(255,255,255,0.05);border-radius:0;padding:0;margin-top:8px;margin-left:0}
-  .drop-menu a{padding:8px 0 8px 16px;border-bottom:1px solid rgba(255,255,255,0.05);font-size:11px}
-  .drop-caret{display:none}
+  .drop-menu { position: static; transform: none !important; opacity: 0; visibility: hidden; pointer-events: none; max-height: 0; overflow: hidden; box-shadow: none; border: none; background: rgba(255,255,255,0.05); border-radius: 0; padding: 0; margin: 0; transition: max-height 0.3s ease, opacity 0.3s ease; }
+  .nav-dropdown.mobile-open .drop-menu { opacity: 1; visibility: visible; pointer-events: auto; max-height: 400px; }
+  .drop-menu a { padding: 12px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 12px; display: block; text-align: center; }
+  .drop-caret { display: inline-block !important; margin-left: 6px; }
+  .nav-dropdown.mobile-open .drop-caret { transform: rotate(180deg); }
   .slide-inner { grid-template-columns: 1fr; padding: 0 28px; }
   .slide-visual { display: none; }
   .slide-title { font-size: 50px; }
@@ -356,7 +360,8 @@ footer { background: var(--blue); padding: 72px 48px 30px; }
   nav img[src='logo.png'] { height: 48px !important; }
   .hero { margin-top: 90px !important; height: 340px !important; }
   .nav-socials { display: none !important; }
-  .slide-content { left: 58px; bottom: 36px; max-width: calc(100% - 100px); }
+  .slide-content { left: 18px; bottom: 36px; max-width: calc(100% - 80px); }
+  .slide-label { display: none; }
   .slide-title { font-size: 28px !important; letter-spacing: -0.5px; margin-bottom: 6px; }
   .slide-tagline { font-size: 11px !important; margin-bottom: 14px; }
   .slide-btn { padding: 10px 22px; font-size: 10px; letter-spacing: 1.2px; }
@@ -539,31 +544,31 @@ footer { background: var(--blue); padding: 72px 48px 30px; }
     <div class="products-grid">
       <div class="product-card reveal d1">
         <div class="pc-head ph1"><div class="pc-head-overlay"></div><div class="pc-badge">5 Variants</div></div>
-        <div class="pc-body"><div class="pc-tag">Skincare</div><div class="pc-name">Creams</div><p class="pc-desc">Vitamin C, Anti Aging, Anti Acne, Anti Freckles & Vitamin B-3 — complete facial cream range.</p><a href="category.html?cat=Creams" class="pc-link">Shop Now →</a></div>
+        <div class="pc-body"><div class="pc-tag">Skincare</div><div class="pc-name">Creams</div><p class="pc-desc">Vitamin C, Anti Aging, Anti Acne, Anti Freckles & Vitamin B-3 — complete facial cream range.</p><a href="category.html?cat=Creams" class="pc-link">View More →</a></div>
       </div>
       <div class="product-card reveal d2">
         <div class="pc-head ph2"><div class="pc-head-overlay"></div><div class="pc-badge">8 Variants</div></div>
-        <div class="pc-body"><div class="pc-tag">Treatment</div><div class="pc-name">Serums</div><p class="pc-desc">Hyaluronic Acid, Salicylic Acid, Niacinamide, Glutathione & more — high-performance treatments.</p><a href="category.html?cat=Serums" class="pc-link">Shop Now →</a></div>
+        <div class="pc-body"><div class="pc-tag">Treatment</div><div class="pc-name">Serums</div><p class="pc-desc">Hyaluronic Acid, Salicylic Acid, Niacinamide, Glutathione & more — high-performance treatments.</p><a href="category.html?cat=Serums" class="pc-link">View More →</a></div>
       </div>
       <div class="product-card reveal d3">
         <div class="pc-head ph3"><div class="pc-head-overlay"></div><div class="pc-badge">14 Variants</div></div>
-        <div class="pc-body"><div class="pc-tag">Cleansing</div><div class="pc-name">Face Wash</div><p class="pc-desc">Foaming, Gel, Charcoal, Gold, Turmeric, Rice, Vitamin C & more — for every skin type.</p><a href="category.html?cat=Face+Wash" class="pc-link">Shop Now →</a></div>
+        <div class="pc-body"><div class="pc-tag">Cleansing</div><div class="pc-name">Face Wash</div><p class="pc-desc">Foaming, Gel, Charcoal, Gold, Turmeric, Rice, Vitamin C & more — for every skin type.</p><a href="category.html?cat=Face+Wash" class="pc-link">View More →</a></div>
       </div>
       <div class="product-card reveal d1">
         <div class="pc-head ph4"><div class="pc-head-overlay"></div><div class="pc-badge">3 Variants</div></div>
-        <div class="pc-body"><div class="pc-tag">Protection</div><div class="pc-name">Petroleum Jelly</div><p class="pc-desc">Colored, Original & Scented — pharmaceutical grade petroleum jelly for skin & lip care.</p><a href="category.html?cat=Petroleum+Jelly" class="pc-link">Shop Now →</a></div>
+        <div class="pc-body"><div class="pc-tag">Protection</div><div class="pc-name">Petroleum Jelly</div><p class="pc-desc">Colored, Original & Scented — pharmaceutical grade petroleum jelly for skin & lip care.</p><a href="category.html?cat=Petroleum+Jelly" class="pc-link">View More →</a></div>
       </div>
       <div class="product-card reveal d2">
         <div class="pc-head ph5"><div class="pc-head-overlay"></div><div class="pc-badge">10 Variants</div></div>
-        <div class="pc-body"><div class="pc-tag">Moisturising</div><div class="pc-name">Lotions</div><p class="pc-desc">Brightening, Niacinamide, Vitamin C, Honey, Cocoa Butter, Aloe Vera & more body lotions.</p><a href="category.html?cat=Lotions" class="pc-link">Shop Now →</a></div>
+        <div class="pc-body"><div class="pc-tag">Moisturising</div><div class="pc-name">Lotions</div><p class="pc-desc">Brightening, Niacinamide, Vitamin C, Honey, Cocoa Butter, Aloe Vera & more body lotions.</p><a href="category.html?cat=Lotions" class="pc-link">View More →</a></div>
       </div>
       <div class="product-card reveal d3">
         <div class="pc-head ph6"><div class="pc-head-overlay"></div><div class="pc-badge">11 Variants</div></div>
-        <div class="pc-body"><div class="pc-tag">Hair Care</div><div class="pc-name">Shampoo</div><p class="pc-desc">Keratin, Anti-Dandruff, Onion, Egg, Rice, Coconut, Herbal & Men's — complete hair care range.</p><a href="category.html?cat=Shampoo" class="pc-link">Shop Now →</a></div>
+        <div class="pc-body"><div class="pc-tag">Hair Care</div><div class="pc-name">Shampoo</div><p class="pc-desc">Keratin, Anti-Dandruff, Onion, Egg, Rice, Coconut, Herbal & Men's — complete hair care range.</p><a href="category.html?cat=Shampoo" class="pc-link">View More →</a></div>
       </div>
       <div class="product-card reveal d1">
         <div class="pc-head ph7"><div class="pc-head-overlay"></div><div class="pc-badge">8 Variants</div></div>
-        <div class="pc-body"><div class="pc-tag">Baby Care</div><div class="pc-name">Baby &amp; Kids</div><p class="pc-desc">Baby Lotion, Cream, Shampoo, Face Wash, Body Wash, Oil & more — gentle care for little ones.</p><a href="category.html?cat=Baby+%26+Kids" class="pc-link">Shop Now →</a></div>
+        <div class="pc-body"><div class="pc-tag">Baby Care</div><div class="pc-name">Baby &amp; Kids</div><p class="pc-desc">Baby Lotion, Cream, Shampoo, Face Wash, Body Wash, Oil & more — gentle care for little ones.</p><a href="category.html?cat=Baby+%26+Kids" class="pc-link">View More →</a></div>
       </div>
     </div>
   </div>
@@ -659,7 +664,7 @@ footer { background: var(--blue); padding: 72px 48px 30px; }
       </div>
     </div>
     <div class="footer-btm">
-      <span>© 2024 ACM Asia Cosmetics &amp; Manufactures Pvt. Ltd. All rights reserved.</span>
+      <span>© 2026 ACM Asia Cosmetics &amp; Manufactures Pvt. Ltd. All rights reserved.</span>
     </div>
   </div>
 </footer>
@@ -686,6 +691,14 @@ document.getElementById('hbg').addEventListener('click',function(){
   var nav=document.getElementById('navLinks');
   nav.classList.toggle('open');
   this.classList.toggle('open');
+});
+document.querySelectorAll('.nav-dropdown > a').forEach(function(link){
+  link.addEventListener('click',function(e){
+    if(window.innerWidth<=900){
+      e.preventDefault();
+      this.parentElement.classList.toggle('mobile-open');
+    }
+  });
 });
 const ro = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } }); }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
