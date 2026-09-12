@@ -322,7 +322,7 @@ document.getElementById('secCount').textContent = `${prods.length} Products`;
 // Products grid
 document.getElementById('prodGrid').innerHTML = prods.map(p => `
   <div class="prod-card">
-    <div class="prod-img" style="${p.img ? '' : 'background:'+data.bg}">${p.img ? '<img src="'+p.img+'" alt="'+p.name+'" style="width:100%;height:100%;object-fit:cover;border-radius:12px 12px 0 0;">' : '<div class="prod-img-text">'+data.abbr+'</div>'}</div>
+    <div class="prod-img" style="${p.img ? 'background:#f4f7ff;padding:12px;' : 'background:'+data.bg}">${p.img ? '<img src="'+p.img+'" alt="'+p.name+'" style="width:100%;height:100%;object-fit:contain;">' : '<div class="prod-img-text">'+data.abbr+'</div>'}</div>
     <div class="prod-body">
       <div class="prod-cat-tag">${cat}</div>
       <div class="prod-name">${p.name}</div>
