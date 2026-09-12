@@ -287,7 +287,7 @@ function renderProducts(filterCat) {
       </div>
       <div class="prod-grid">${prods.map(p => `
         <div class="prod-card">
-          <div class="prod-img" style="${p.img ? 'background:#f4f7ff;padding:12px;' : 'background:'+CAT_BG[cat]}">${p.img ? '<img src="'+p.img+'" alt="'+p.name+'" style="width:100%;height:100%;object-fit:contain;">' : '<div class="prod-img-text">'+CAT_ABBR[cat]+'</div>'}</div>
+          <div class="prod-img" style="${p.img ? '' : 'background:'+CAT_BG[cat]}">${p.img ? '<img src="'+p.img+'" alt="'+p.name+'" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:12px 12px 0 0;">' : '<div class="prod-img-text">'+CAT_ABBR[cat]+'</div>'}</div>
           <div class="prod-body">
             <div class="prod-cat-tag">${cat}</div>
             <div class="prod-name">${p.name}</div>
