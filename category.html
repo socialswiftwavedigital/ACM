@@ -83,7 +83,7 @@ nav{position:fixed;top:36px;left:0;right:0;z-index:1000;background:var(--blue);d
 .prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px}
 .prod-card{background:var(--white);border:2px solid var(--border);border-radius:14px;overflow:hidden;transition:all var(--trans)}
 .prod-card:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:0 16px 40px rgba(13,33,88,0.12)}
-.prod-img{height:260px;display:flex;align-items:center;justify-content:center;position:relative}
+.prod-img{height:200px;display:flex;align-items:center;justify-content:center;position:relative;background:#fff}
 .prod-img-text{color:rgba(255,255,255,0.2);font-size:52px;font-weight:900;letter-spacing:-2px;user-select:none}
 .prod-body{padding:20px}
 .prod-cat-tag{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:6px}
@@ -322,7 +322,7 @@ document.getElementById('secCount').textContent = `${prods.length} Products`;
 // Products grid
 document.getElementById('prodGrid').innerHTML = prods.map(p => `
   <div class="prod-card">
-    <div class="prod-img" style="${p.img ? '' : 'background:'+data.bg}">${p.img ? '<img src="'+p.img+'" alt="'+p.name+'" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:12px 12px 0 0;">' : '<div class="prod-img-text">'+data.abbr+'</div>'}</div>
+    <div class="prod-img" style="${p.img ? '' : 'background:'+data.bg}">${p.img ? '<img src="'+p.img+'" alt="'+p.name+'" style="max-width:100%;max-height:100%;object-fit:contain;">' : '<div class="prod-img-text">'+data.abbr+'</div>'}</div>
     <div class="prod-body">
       <div class="prod-cat-tag">${cat}</div>
       <div class="prod-name">${p.name}</div>
