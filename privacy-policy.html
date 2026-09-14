@@ -41,7 +41,7 @@ nav{position:fixed;top:36px;left:0;right:0;z-index:1000;background:var(--blue);d
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .page-hero{margin-top:116px;background:var(--blue);padding:80px 48px 70px;position:relative;overflow:hidden}
 .page-hero::before{content:'';position:absolute;right:-80px;top:-80px;width:400px;height:400px;background:var(--red);opacity:0.07;border-radius:50%}
-.container{max-width:860px;margin:0 auto;position:relative;z-index:1}
+.container{max-width:1100px;margin:0 auto;position:relative;z-index:1}
 .ph-eye{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:12px;display:flex;align-items:center;gap:10px}
 .ph-eye::before{content:'';width:24px;height:2px;background:var(--red);display:block}
 .ph-title{font-size:clamp(32px,5vw,56px);font-weight:900;color:var(--white);text-transform:uppercase;line-height:1.05;letter-spacing:-0.5px}
@@ -61,7 +61,7 @@ nav{position:fixed;top:36px;left:0;right:0;z-index:1000;background:var(--blue);d
 .policy-updated strong{color:var(--blue)}
 footer{background:var(--blue);padding:60px 48px 28px}
 .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
-.fb-brand p{font-size:13px;line-height:1.8;margin-top:12px;color:rgba(255,255,255,0.45);max-width:280px}
+.fb-brand p{font-size:13px;line-height:1.8;margin-top:12px;color:#fff;max-width:280px}
 .fc h4{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--white);margin-bottom:18px}
 .fc ul{list-style:none}
 .fc li{margin-bottom:10px}
@@ -71,7 +71,7 @@ footer{background:var(--blue);padding:60px 48px 28px}
 .footer-socials a{color:rgba(255,255,255,0.55);text-decoration:none;display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.08);transition:all var(--trans)}
 .footer-socials a:hover{background:var(--red);color:var(--white)}
 .footer-socials svg{width:16px;height:16px;fill:currentColor}
-.footer-btm{max-width:1200px;margin:0 auto;border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;font-size:12px;color:#fff}
+.footer-btm{max-width:1200px;margin:0 auto;border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;font-size:12px;color:#fff;display:flex;justify-content:space-between;align-items:center}
 .mobile-menu-footer{display:none!important}
 @media(max-width:900px){
   nav{padding:0 20px}
@@ -93,7 +93,7 @@ footer{background:var(--blue);padding:60px 48px 28px}
   .mmf-socials a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);text-decoration:none;transition:all 0.3s ease}
   .mmf-socials a:hover{background:#DC2626;border-color:#DC2626;color:#fff}
   .mmf-socials svg{width:15px;height:15px;fill:currentColor}
-  .page-hero,.policy-section{padding-left:20px;padding-right:20px}
+  .page-hero,.policy-section{padding-left:20px;padding-right:20px;padding-top:40px;padding-bottom:40px}
   .footer-grid{grid-template-columns:1fr;gap:32px}
 }
 @media(max-width:540px){
@@ -128,7 +128,6 @@ footer{background:var(--blue);padding:60px 48px 28px}
     <li class="mobile-menu-footer">
       <p class="mmf-label">Contact Us</p>
       <a href="tel:+923255129241" class="mmf-link">+92 325 5129241</a>
-      <a href="mailto:info@acmasiacosmetics.com" class="mmf-link">info@acmasiacosmetics.com</a>
       <a href="mailto:acmpvtlimited@gmail.com" class="mmf-link">acmpvtlimited@gmail.com</a>
       <div class="mmf-socials">
         <a href="https://facebook.com" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
@@ -144,7 +143,7 @@ footer{background:var(--blue);padding:60px 48px 28px}
 
 <!-- PAGE HERO -->
 <div class="page-hero">
-  <div class="container" style="max-width:1200px">
+  <div class="container" style="max-width:1100px">
     <div class="ph-eye">Legal</div>
     <h1 class="ph-title">Privacy <em>Policy</em></h1>
     <p class="ph-sub">How ACM Asia Cosmetics collects, uses and protects your information.</p>
@@ -308,7 +307,6 @@ footer{background:var(--blue);padding:60px 48px 28px}
     </ul></div>
     <div class="fc"><h4>Contact Info</h4><ul>
       <li><a href="tel:+923255129241" style="display:flex;align-items:center;gap:8px"><svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.13 6.13l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+92 325 5129241</a></li>
-      <li><a href="mailto:info@acmasiacosmetics.com" style="display:flex;align-items:center;gap:8px"><svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>info@acmasiacosmetics.com</a></li>
         <li><a href="mailto:acmpvtlimited@gmail.com" style="display:flex;align-items:center;gap:8px"><svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>acmpvtlimited@gmail.com</a></li>
       <li><a href="https://wa.me/923255129241" target="_blank" style="display:flex;align-items:center;gap:8px"><svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:currentColor;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>WhatsApp Order</a></li>
     </ul></div>
