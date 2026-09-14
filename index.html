@@ -372,7 +372,16 @@ footer { background: var(--blue); padding: 72px 48px 30px; }
   .products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .why-grid, .process-grid, .footer-grid, .stats-grid { grid-template-columns: 1fr; }
   .section { padding: 70px 20px; }
-}</style>
+}@media(max-width:540px){
+  nav{height:60px!important}
+  .page-hero,.hero-section{margin-top:90px!important}
+  .hero-title,.h-title{font-size:clamp(26px,8vw,38px)!important}
+  .sec-title{font-size:22px}
+  .pc-name{font-size:14px}
+  .pc-desc{font-size:12px}
+  .section,.about-section,.process-section,.cta-section{padding-left:16px;padding-right:16px}
+}
+</style>
 </head>
 <body>
 
@@ -520,7 +529,7 @@ footer { background: var(--blue); padding: 72px 48px 30px; }
         <div class="sec-eyebrow">Who We Are</div>
         <h2 class="sec-title">Your Trusted<br><em>Beauty</em> Partner</h2>
         <p>ACM Asia Cosmetics &amp; Manufactures Private Limited is Pakistan's premium cosmetics manufacturing company. We formulate, produce and supply <strong>world-class beauty products</strong> that meet the highest international quality standards.</p>
-        <p>From concept to finished product, our state-of-the-art facility handles everything — R&amp;D, formulation, filling, packaging and quality control — all under one roof.</p>
+        <p>From concept to finished product, our state-of-the-art facility handles everything: R&amp;D, formulation, filling, packaging and quality control, all under one roof.</p>
         <div class="stats-grid">
           <div class="stat-card reveal d1"><div class="stat-num">40<span>+</span></div><div class="stat-lbl">Products</div></div>
           <div class="stat-card reveal d2"><div class="stat-num">7</div><div class="stat-lbl">Categories</div></div>
@@ -545,19 +554,19 @@ footer { background: var(--blue); padding: 72px 48px 30px; }
     <div class="products-grid">
       <div class="product-card reveal d1">
         <div class="pc-head ph1"><div class="pc-head-overlay"></div><div class="pc-badge">5 Variants</div></div>
-        <div class="pc-body"><div class="pc-tag">Skincare</div><div class="pc-name">Creams</div><p class="pc-desc">Vitamin C, Anti Aging, Anti Acne, Anti Freckles & Vitamin B-3 — complete facial cream range.</p><a href="category.html?cat=Creams" class="pc-link">View More →</a></div>
+        <div class="pc-body"><div class="pc-tag">Skincare</div><div class="pc-name">Creams</div><p class="pc-desc">Vitamin C, Anti Aging, Anti Acne, Anti Freckles & Vitamin B-3: complete facial cream range.</p><a href="category.html?cat=Creams" class="pc-link">View More →</a></div>
       </div>
       <div class="product-card reveal d2">
         <div class="pc-head ph2"><div class="pc-head-overlay"></div><div class="pc-badge">8 Variants</div></div>
-        <div class="pc-body"><div class="pc-tag">Treatment</div><div class="pc-name">Serums</div><p class="pc-desc">Hyaluronic Acid, Salicylic Acid, Niacinamide, Glutathione & more — high-performance treatments.</p><a href="category.html?cat=Serums" class="pc-link">View More →</a></div>
+        <div class="pc-body"><div class="pc-tag">Treatment</div><div class="pc-name">Serums</div><p class="pc-desc">Hyaluronic Acid, Salicylic Acid, Niacinamide, Glutathione & more: high-performance treatments.</p><a href="category.html?cat=Serums" class="pc-link">View More →</a></div>
       </div>
       <div class="product-card reveal d3">
         <div class="pc-head ph3"><div class="pc-head-overlay"></div><div class="pc-badge">14 Variants</div></div>
-        <div class="pc-body"><div class="pc-tag">Cleansing</div><div class="pc-name">Face Wash</div><p class="pc-desc">Foaming, Gel, Charcoal, Gold, Turmeric, Rice, Vitamin C & more — for every skin type.</p><a href="category.html?cat=Face+Wash" class="pc-link">View More →</a></div>
+        <div class="pc-body"><div class="pc-tag">Cleansing</div><div class="pc-name">Face Wash</div><p class="pc-desc">Foaming, Gel, Charcoal, Gold, Turmeric, Rice, Vitamin C & more: for every skin type.</p><a href="category.html?cat=Face+Wash" class="pc-link">View More →</a></div>
       </div>
       <div class="product-card reveal d1">
         <div class="pc-head ph4"><div class="pc-head-overlay"></div><div class="pc-badge">3 Variants</div></div>
-        <div class="pc-body"><div class="pc-tag">Protection</div><div class="pc-name">Petroleum Jelly</div><p class="pc-desc">Colored, Original & Scented — pharmaceutical grade petroleum jelly for skin & lip care.</p><a href="category.html?cat=Petroleum+Jelly" class="pc-link">View More →</a></div>
+        <div class="pc-body"><div class="pc-tag">Protection</div><div class="pc-name">Petroleum Jelly</div><p class="pc-desc">Colored, Original & Scented: pharmaceutical grade petroleum jelly for skin & lip care.</p><a href="category.html?cat=Petroleum+Jelly" class="pc-link">View More →</a></div>
       </div>
       <div class="product-card reveal d2">
         <div class="pc-head ph5"><div class="pc-head-overlay"></div><div class="pc-badge">10 Variants</div></div>
@@ -565,11 +574,11 @@ footer { background: var(--blue); padding: 72px 48px 30px; }
       </div>
       <div class="product-card reveal d3">
         <div class="pc-head ph6"><div class="pc-head-overlay"></div><div class="pc-badge">11 Variants</div></div>
-        <div class="pc-body"><div class="pc-tag">Hair Care</div><div class="pc-name">Shampoo</div><p class="pc-desc">Keratin, Anti-Dandruff, Onion, Egg, Rice, Coconut, Herbal & Men's — complete hair care range.</p><a href="category.html?cat=Shampoo" class="pc-link">View More →</a></div>
+        <div class="pc-body"><div class="pc-tag">Hair Care</div><div class="pc-name">Shampoo</div><p class="pc-desc">Keratin, Anti-Dandruff, Onion, Egg, Rice, Coconut, Herbal & Men's: complete hair care range.</p><a href="category.html?cat=Shampoo" class="pc-link">View More →</a></div>
       </div>
       <div class="product-card reveal d1">
         <div class="pc-head ph7"><div class="pc-head-overlay"></div><div class="pc-badge">8 Variants</div></div>
-        <div class="pc-body"><div class="pc-tag">Baby Care</div><div class="pc-name">Baby &amp; Kids</div><p class="pc-desc">Baby Lotion, Cream, Shampoo, Face Wash, Body Wash, Oil & more — gentle care for little ones.</p><a href="category.html?cat=Baby+%26+Kids" class="pc-link">View More →</a></div>
+        <div class="pc-body"><div class="pc-tag">Baby Care</div><div class="pc-name">Baby &amp; Kids</div><p class="pc-desc">Baby Lotion, Cream, Shampoo, Face Wash, Body Wash, Oil & more: gentle care for little ones.</p><a href="category.html?cat=Baby+%26+Kids" class="pc-link">View More →</a></div>
       </div>
     </div>
   </div>
@@ -602,7 +611,7 @@ footer { background: var(--blue); padding: 72px 48px 30px; }
       <div class="proc-step reveal d1"><div class="proc-num">01</div><h3>Consultation</h3><p>We discuss your requirements, target market, budget and product specifications in detail.</p></div>
       <div class="proc-step reveal d2"><div class="proc-num">02</div><h3>Formulation</h3><p>Our R&amp;D team develops and refines the perfect formula matching your specifications.</p></div>
       <div class="proc-step reveal d3"><div class="proc-num">03</div><h3>Production</h3><p>Large-scale manufacturing with strict quality checks at every production stage.</p></div>
-      <div class="proc-step reveal d4"><div class="proc-num">04</div><h3>Delivery</h3><p>Packaged, labelled and delivered on time — ready for retail shelves immediately.</p></div>
+      <div class="proc-step reveal d4"><div class="proc-num">04</div><h3>Delivery</h3><p>Packaged, labelled and delivered on time, ready for retail shelves immediately.</p></div>
     </div>
   </div>
 </section>
@@ -628,7 +637,7 @@ footer { background: var(--blue); padding: 72px 48px 30px; }
           <img src="logo.png" alt="ACM Logo" style="height:70px;width:auto;border-radius:6px;">
           
         </div>
-        <p>Pakistan's trusted cosmetics manufacturing partner — delivering premium quality beauty products for over a decade.</p>
+        <p>Pakistan's trusted cosmetics manufacturing partner, delivering premium quality beauty products for over a decade.</p>
         <div class="socials" style="margin-top:20px">
           <a href="https://facebook.com" aria-label="Facebook" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
           <a href="https://instagram.com" aria-label="Instagram" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>

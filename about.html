@@ -178,7 +178,16 @@ footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28p
   .page-hero { margin-top: 90px !important; padding: 50px 20px 40px !important; }
   .cat-hero { margin-top: 90px !important; }
   .nav-links { top: 90px !important; }
-}</style>
+}@media(max-width:540px){
+  nav{height:60px!important}
+  .page-hero{margin-top:90px;padding:40px 20px 32px}
+  .ph-title{font-size:clamp(28px,8vw,40px)}
+  .stats-banner{padding:32px 20px}
+  .sb-num{font-size:36px}
+  .story-section,.cta-section{padding:48px 20px}
+  .section-title{font-size:22px}
+}
+</style>
 </head>
 <body>
 
@@ -221,7 +230,7 @@ footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28p
   <div class="container">
     <div class="ph-eye">Who We Are</div>
     <h1 class="ph-title">About <em>ACM</em><br>Private Limited</h1>
-    <p class="ph-sub">Pakistan's premier cosmetics manufacturing company &mdash; trusted by brands nationwide for world-class beauty formulations.</p>
+    <p class="ph-sub">Pakistan's premier cosmetics manufacturing company, trusted by brands nationwide for world-class beauty formulations.</p>
   </div>
 </div>
 
@@ -243,7 +252,7 @@ footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28p
         <div class="sec-eye">Our Story</div>
         <h2>Built on a <em>Passion</em><br>for Excellence</h2>
         <p>ACM Asia Cosmetics &amp; Manufactures Private Limited was established with a singular mission: to produce <strong>world-class beauty products</strong> that meet the highest international quality standards, manufactured right here in Pakistan.</p>
-        <p>Over the past decade, we have grown from a small operation into one of Pakistan's most trusted cosmetics manufacturers. Our state-of-the-art facility handles everything from <strong>R&amp;D and formulation</strong> to filling, packaging, and quality control &mdash; all under one roof.</p>
+        <p>Over the past decade, we have grown from a small operation into one of Pakistan's most trusted cosmetics manufacturers. Our state-of-the-art facility handles everything from <strong>R&amp;D and formulation</strong> to filling, packaging, and quality control, all under one roof.</p>
         <p>Today, ACM supplies a comprehensive range of 40+ premium products across 6 categories to retailers, brands, and private label clients throughout Pakistan and beyond.</p>
       </div>
       <div class="story-visual">
@@ -252,7 +261,7 @@ footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28p
           <div class="sv-desc">Automated filling, mixing & packaging lines</div>
         </div>
         <div class="sv-card">
-          <div class="sv-icon">??</div>
+          <div class="sv-icon">&#128300;</div>
           <div class="sv-title">R&D Lab</div>
           <div class="sv-desc">In-house research & superior formulations</div>
         </div>
@@ -320,7 +329,7 @@ footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28p
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px">
         <img src="logo.png" alt="ACM Logo" style="height:70px;width:auto;border-radius:6px;">
       </div>
-      <p>Pakistan's trusted cosmetics manufacturing partner &mdash; delivering premium quality beauty products for over a decade.</p>
+      <p>Pakistan's trusted cosmetics manufacturing partner, delivering premium quality beauty products for over a decade.</p>
       <div class="footer-socials">
         <a href="https://facebook.com" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
         <a href="https://instagram.com" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
@@ -357,13 +366,6 @@ footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28p
 </footer>
 
 <script src="products.js"></script>
-<script>
-document.getElementById('hbg').addEventListener('click',function(){
-  var nav=document.getElementById('navLinks');
-  nav.classList.toggle('open');
-  this.classList.toggle('open');
-});
-</script>
 
 <!-- FLOATING WHATSAPP BUTTON -->
 <style>
