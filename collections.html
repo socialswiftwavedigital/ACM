@@ -194,7 +194,7 @@ footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28p
   <ul class="nav-links" id="navLinks">
     <li><a href="/">Home</a></li>
     <li><a href="about.html">About</a></li>
-    <li class="nav-dropdown"><a href="collections.html" class="active">Products<svg class="drop-caret" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a><div class="drop-menu"><a href="category.html?cat=Creams">Creams</a><a href="category.html?cat=Serums">Serums</a><a href="category.html?cat=Face+Wash">Face Wash</a><a href="category.html?cat=Petroleum+Jelly">Petroleum Jelly</a><a href="category.html?cat=Lotions">Lotions</a><a href="category.html?cat=Shampoo">Shampoo</a><a href="category.html?cat=Baby+%26+Kids">Baby &amp; Kids</a><a href="category.html?cat=Hair+Care">Hair Care</a><a href="category.html?cat=Essential+Oils">Essential Oils</a><a href="category.html?cat=Facial">Facial</a></div></li>
+    <li class="nav-dropdown"><a href="collections.html" class="active">Products<svg class="drop-caret" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a><div class="drop-menu"><a href="category.html?cat=Creams">Creams</a><a href="category.html?cat=Serums">Serums</a><a href="category.html?cat=Face+Wash">Face Wash</a><a href="category.html?cat=Petroleum+Jelly">Petroleum Jelly</a><a href="category.html?cat=Lotions">Lotions</a><a href="category.html?cat=Shampoo+%26+Conditioner">Shampoo &amp; Conditioner</a><a href="category.html?cat=Baby+%26+Kids">Baby &amp; Kids</a><a href="category.html?cat=Hair+Care">Hair Care</a><a href="category.html?cat=Essential+Oils">Essential Oils</a><a href="category.html?cat=Facial">Facial</a></div></li>
     <li><a href="faqs.html">FAQs</a></li>
     <li><a href="contact.html">Contact</a></li>
     <li class="mobile-menu-footer">
@@ -231,7 +231,7 @@ footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28p
     <button class="ftab" data-cat="Face Wash">Face Wash</button>
     <button class="ftab" data-cat="Petroleum Jelly">Petroleum Jelly</button>
     <button class="ftab" data-cat="Lotions">Lotions</button>
-    <button class="ftab" data-cat="Shampoo">Shampoo</button>
+    <button class="ftab" data-cat="Shampoo &amp; Conditioner">Shampoo &amp; Conditioner</button>
     <button class="ftab" data-cat="Baby &amp; Kids">Baby &amp; Kids</button>
     <button class="ftab" data-cat="Hair Care">Hair Care</button>
     <button class="ftab" data-cat="Essential Oils">Essential Oils</button>
@@ -271,7 +271,7 @@ footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28p
       <li><a href="category.html?cat=Face+Wash">Face Wash</a></li>
       <li><a href="category.html?cat=Petroleum+Jelly">Petroleum Jelly</a></li>
       <li><a href="category.html?cat=Lotions">Lotions</a></li>
-      <li><a href="category.html?cat=Shampoo">Shampoo</a></li>
+      <li><a href="category.html?cat=Shampoo+%26+Conditioner">Shampoo &amp; Conditioner</a></li>
       <li><a href="category.html?cat=Baby+%26+Kids">Baby &amp; Kids</a></li>
       <li><a href="category.html?cat=Hair+Care">Hair Care</a></li>
       <li><a href="category.html?cat=Essential+Oils">Essential Oils</a></li>
@@ -294,7 +294,7 @@ footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28p
 const CAT_BG = {
   'Creams':         '#0D2158','Serums':        '#1a1060',
   'Face Wash':      '#0a3d62','Petroleum Jelly':'#1e3a5f',
-  'Lotions':        '#132E6A','Shampoo':       '#12285c',
+  'Lotions':        '#132E6A','Shampoo & Conditioner':       '#12285c',
   'Baby & Kids':    '#1a5276',
   'Hair Care':      '#2d1b69',
   'Essential Oils': '#1a4d2e',
@@ -302,7 +302,7 @@ const CAT_BG = {
 };
 const CAT_ABBR = {
   'Creams':'CR','Serums':'SR','Face Wash':'FW',
-  'Petroleum Jelly':'PJ','Lotions':'LT','Shampoo':'SH',
+  'Petroleum Jelly':'PJ','Lotions':'LT','Shampoo & Conditioner':'SC',
   'Baby & Kids':'BK',
   'Hair Care':'HC',
   'Essential Oils':'EO',
@@ -311,7 +311,7 @@ const CAT_ABBR = {
 const CAT_IMG = {
   'Creams':'slide-creams.png','Serums':'slide-serums.png',
   'Face Wash':'slide-facewash.png','Petroleum Jelly':'slide-pjelly.png',
-  'Lotions':'slide-lotions.png','Shampoo':'slide-shampoo.png',
+  'Lotions':'slide-lotions.png','Shampoo & Conditioner':'slide-shampoo.png',
   'Baby & Kids':'slide-babykids.png',
   'Hair Care':'slide-shampoo.png',
   'Essential Oils':'slide-lotions.png',
@@ -321,7 +321,7 @@ const CAT_IMG = {
 function renderProducts(filterCat) {
   const container = document.getElementById('productContainer');
   const cats = filterCat === 'all'
-    ? ['Creams','Serums','Face Wash','Petroleum Jelly','Lotions','Shampoo','Baby & Kids','Hair Care','Essential Oils','Facial']
+    ? ['Creams','Serums','Face Wash','Petroleum Jelly','Lotions','Shampoo & Conditioner','Baby & Kids','Hair Care','Essential Oils','Facial']
     : [filterCat];
 
   container.innerHTML = '';
