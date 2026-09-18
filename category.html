@@ -197,7 +197,7 @@ footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28p
   <ul class="nav-links" id="navLinks">
     <li><a href="/">Home</a></li>
     <li><a href="about.html">About</a></li>
-    <li class="nav-dropdown"><a href="collections.html" class="active">Products<svg class="drop-caret" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a><div class="drop-menu"><a href="category.html?cat=Creams">Creams</a><a href="category.html?cat=Serums">Serums</a><a href="category.html?cat=Face+Wash">Face Wash</a><a href="category.html?cat=Petroleum+Jelly">Petroleum Jelly</a><a href="category.html?cat=Lotions">Lotions</a><a href="category.html?cat=Shampoo">Shampoo</a><a href="category.html?cat=Baby+%26+Kids">Baby &amp; Kids</a><a href="category.html?cat=Hair+Care">Hair Care</a><a href="category.html?cat=Essential+Oils">Essential Oils</a></div></li>
+    <li class="nav-dropdown"><a href="collections.html" class="active">Products<svg class="drop-caret" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a><div class="drop-menu"><a href="category.html?cat=Creams">Creams</a><a href="category.html?cat=Serums">Serums</a><a href="category.html?cat=Face+Wash">Face Wash</a><a href="category.html?cat=Petroleum+Jelly">Petroleum Jelly</a><a href="category.html?cat=Lotions">Lotions</a><a href="category.html?cat=Shampoo">Shampoo</a><a href="category.html?cat=Baby+%26+Kids">Baby &amp; Kids</a><a href="category.html?cat=Hair+Care">Hair Care</a><a href="category.html?cat=Essential+Oils">Essential Oils</a><a href="category.html?cat=Facial">Facial</a></div></li>
     <li><a href="faqs.html">FAQs</a></li>
     <li><a href="contact.html">Contact</a></li>
     <li class="mobile-menu-footer">
@@ -285,6 +285,7 @@ footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28p
       <li><a href="category.html?cat=Baby+%26+Kids">Baby &amp; Kids</a></li>
       <li><a href="category.html?cat=Hair+Care">Hair Care</a></li>
       <li><a href="category.html?cat=Essential+Oils">Essential Oils</a></li>
+      <li><a href="category.html?cat=Facial">Facial</a></li>
     </ul></div>
     <div class="fc"><h4>Contact Info</h4><ul>
       <li><a href="tel:+923255129241" style="display:flex;align-items:center;gap:8px"><svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.13 6.13l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+92 325 5129241</a></li>
@@ -301,14 +302,17 @@ footer{background:var(--blue);color:rgba(255,255,255,0.65);padding:60px 48px 28p
 <script src="products.js"></script>
 <script>
 const CAT_DATA = {
-  'Creams':          { bg:'#0D2158', abbr:'CR', img:'slide-creams.png',   desc:'Complete facial care: day cream, night cream, brightening, anti-ageing & SPF formulas.', tag:'Skincare' },
-  'Serums':          { bg:'#1a1060', abbr:'SR', img:'slide-serums.png',   desc:'High-performance targeted treatments: Vitamin C, hyaluronic acid, retinol & niacinamide.', tag:'Treatment' },
+  'Creams':          { bg:'#0D2158', abbr:'CR', img:'slide-creams.png',   desc:'20 variants: Vitamin C, Night, Fairness, BB Cream, Moisturizer, Sunblocks SPF 30-80, Soothing & more.', tag:'Skincare' },
+  'Serums':          { bg:'#1a1060', abbr:'SR', img:'slide-serums.png',   desc:'11 variants: Glycolic Acid, All-in-One, Multipurpose, Vitamin C, Hyaluronic Acid, Glutathione & more.', tag:'Treatment' },
   'Face Wash':       { bg:'#0a3d62', abbr:'FW', img:'slide-facewash.png', desc:'Gentle daily cleansers: foaming, gel, cream & micellar formulas for all skin types.', tag:'Cleansing' },
   'Petroleum Jelly': { bg:'#1e3a5f', abbr:'PJ', img:'slide-pjelly.png',   desc:'Pharmaceutical-grade skin & lip protection: original, scented, colored & unscented variants.', tag:'Protection' },
   'Lotions':         { bg:'#132E6A', abbr:'LT', img:'slide-lotions.png',  desc:'Nine body lotion variants: moisturising, brightening, firming & sensitive skin formulas.', tag:'Moisturising' },
   'Shampoo':         { bg:'#12285c', abbr:'SH', img:'slide-shampoo.png',  desc:'Complete hair care range: anti-dandruff, keratin, volume, hydrating & color-safe formulas.', tag:'Hair Care' },
 
-  'Baby & Kids':    { bg:'#1a3a5c', abbr:'BK', img:'slide-babykids.png', desc:'Gentle & safe baby care: lotions, creams, shampoos, body wash, oil & petroleum jelly for delicate skin.', tag:'Baby Care' },
+  'Baby & Kids':    { bg:'#1a3a5c', abbr:'BK', img:'slide-babykids.png',  desc:'Gentle & safe baby care: lotions, creams, shampoos, body wash, oil & petroleum jelly for delicate skin.', tag:'Baby Care' },
+  'Hair Care':      { bg:'#2d1b69', abbr:'HC', img:'slide-shampoo.png',   desc:'Complete hair styling & treatment range: tonic, serum, oil, gel & hair cream.', tag:'Hair Solutions' },
+  'Essential Oils': { bg:'#1a4d2e', abbr:'EO', img:'slide-lotions.png',   desc:'Pure natural oils: Coconut, Argan, Jojoba, Neem, Moringa, Kalonji, Amla, Onion & more.', tag:'Natural Oils' },
+  'Facial':         { bg:'#6d1b7b', abbr:'FC', img:'slide-facewash.png',  desc:'Complete facial treatment range: masks, scrubs, toners, bleach, peel-off & cream developers.', tag:'Beauty Treatments' },
 };
 const ALL_CATS = Object.keys(CAT_DATA);
 
